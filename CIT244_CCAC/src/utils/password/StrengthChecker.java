@@ -70,8 +70,8 @@ public class StrengthChecker {
         return minPasswordSize;
     }
 
-    public static void setMinPasswordSize(int minPasswordSize) {
-       this.minPasswordSize = minPasswordSize;
+    public static void setMinPasswordSize(int minSize) {
+       minPasswordSize = minSize;
     }
 
     public static String getErrors() {
