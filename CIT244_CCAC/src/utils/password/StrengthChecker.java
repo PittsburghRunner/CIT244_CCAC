@@ -71,9 +71,11 @@ public class StrengthChecker {
     }
 
     public static void setMinPasswordSize(int minPasswordSize) {
-        StrengthChecker.minPasswordSize = minPasswordSize;
+       this.minPasswordSize = minPasswordSize;
     }
-    
-    
+
+    public static String getErrors() {
+        return errors;
+    }
 
 }
