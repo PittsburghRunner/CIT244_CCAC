@@ -20,7 +20,7 @@ public enum Feedback {
     private final String code;
     private final String description;
     private final String feedback;
-    
+
     private Feedback(String code, String feedback, String description) {
         this.code = code;
         this.feedback = feedback;
@@ -43,4 +43,5 @@ public enum Feedback {
     public String toString() {
         return code;
     }
+
 }

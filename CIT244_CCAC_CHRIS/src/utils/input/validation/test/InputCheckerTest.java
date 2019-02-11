@@ -17,18 +17,27 @@ public class InputCheckerTest {
         String inputsToCheck[] = new String[]{"test", "test1", "test!", "Test!34"};
         InputChecker ic = new InputChecker();
 
+        System.out.println("Setting Max");
         ic.setMaxSize(8);
+
+        System.out.println("Setting Min");
         ic.setMinSize(4);
+
+        System.out.println("Setting Req");
         ic.setRequiredStrings(new String[]{"!@#$%^&*()", "QWERTYUIOPASDFGHJKLZXCVBNM", "qwertyuiopasdfghjklzxcvbnm", "1234567890"});
+
+        System.out.println("Setting Forbidden");
         ic.setForbiddenStrings(new String[]{"'~`?<>\";"});
 
         for (int i = 0; i < inputsToCheck.length; i++) {
+            System.out.println("Checking " + i );
             String input = inputsToCheck[i];
-          Boolean meets =  ic.checkInput(input);
-          
-          if(meets){
-              System.out.println("SUCCESSS! The password: " + input + " meets requirements!");
-          }
+            System.out.println("Running Check");
+            Boolean meets = ic.checkInput(input);
+
+            if (meets) {
+                System.out.println("SUCCESSS! The password: " + input + " meets requirements!");
+            }
         }
 
     }

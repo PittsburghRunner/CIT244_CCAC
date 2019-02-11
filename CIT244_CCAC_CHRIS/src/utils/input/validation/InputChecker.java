@@ -63,13 +63,25 @@ public final class InputChecker {
         feedbackSet = new String[requiredStrings.length * 2][2];
         feedbackSetPosition = 0;
 
+        //Check for null
+        System.out.println("Checking for null");
+        if (input == null || input.length() == 0) {
+            return false;
+        }
+
         //Check Minimum Size
+        System.out.println("Check Minimum Size");
         if (input.length() < minSize) {
             setFeedback(Feedback.ERROR_MIN_SIZE, "Expected: " + String.valueOf(minSize) + " Received:" + String.valueOf(input.length()));
         }
         //Check Maximum Size
+        System.out.println("Check Maximum Size");
+        if (input.length() > maxSize) {
+            setFeedback(Feedback.ERROR_MAX_SIZE, "Expected: " + String.valueOf(maxSize) + " Received:" + String.valueOf(input.length()));
+        }
 
         //Check Required Characters
+        System.out.println("Check Required Characters");
         if (requiredStrings == null) {
             throw new ServiceConfigurationError("Required Characters are not set.");
         } else if (minSize == 0) {
@@ -80,32 +92,33 @@ public final class InputChecker {
 
             for (int i = 0; i < requiredStrings.length; i++) {
                 boolean contains = false;
-
-                for (int p = 0; p < input.length(); p++) {
-                    if (requiredStrings[i].contains(input.subSequence(p, p))) {
+                String rs = requiredStrings[i];
+                for (int p = 0; p < rs.length(); p++) {
+                    CharSequence character = rs.subSequence(p, p + 1);
+                    if (input.contains(character)) {
                         contains = true;
-                        break;
                     }
-
                 }
+
                 if (contains == false) {
-                    setFeedback(Feedback.ERROR_REQUIRED_STRING, "Expected: " + requiredStrings[i]);
+                    setFeedback(Feedback.ERROR_REQUIRED_STRING, "Expected: " + rs);
                     meets = false;
                 }
             }
 
             //Check Forbiden Characters
+            System.out.println("Check Forbidden Characters");
             for (int i = 0; i < forbiddenStrings.length; i++) {
                 boolean contains = false;
-
-                for (int p = 0; p < input.length(); p++) {
-                    if (forbiddenStrings[i].contains(input.subSequence(p, p))) {
+                String fs = forbiddenStrings[i];
+                for (int p = 0; p < fs.length(); p++) {
+                    CharSequence character = fs.subSequence(p, p + 1);
+                    if (input.contains(character)) {
                         contains = true;
-                        setFeedback(Feedback.ERROR_FORBIDDEN_STRING, "Not Expected: " + forbiddenStrings[i]);
-                        break;
+                        setFeedback(Feedback.ERROR_FORBIDDEN_STRING, "Not Expected: " + character);
                     }
-
                 }
+
                 if (contains == true) {
                     meets = false;
                 }
