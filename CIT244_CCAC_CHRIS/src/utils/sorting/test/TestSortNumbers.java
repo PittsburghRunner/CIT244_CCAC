@@ -5,19 +5,19 @@
  */
 package utils.sorting.test;
 
-import utils.sorting.SortIntegers;
+import utils.sorting.SortUtility;
 
 /**
- *
+ * Class to test the SortUtility
  * @author christopher.eckles
  */
-public class TestSortIntegers {
+public class TestSortNumbers {
     
     public static void main(String[] args) {
-        int[] sortMe = new int[] {123,123653633,123,35,8888,23,2342,222465};
+        int[] sortMe = new int[] {67,3345,999999999,0,123,123653633,123,35,8888,23,2342,222465,1,2,3,4,5,6,1};
         
         printIntArray(sortMe);
-       SortIntegers.sortIntegerArray(sortMe);
+       SortUtility.sortNumbers(sortMe);
                printIntArray(sortMe);
 
     }
