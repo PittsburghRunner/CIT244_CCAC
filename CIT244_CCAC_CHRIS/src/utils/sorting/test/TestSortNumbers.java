@@ -28,15 +28,22 @@ public class TestSortNumbers {
 
         int[] sortInts = new int[]{67, 3345, 999999999, 0, 123, 123653633, 123, 35, 8888, 23, 2342, 222465, 1, 2, 3, 4, 5, 6, 1};
         printIntArray(sortInts);
-        su.sortNumbers(sortInts);
+        su.sort(sortInts);
         printIntArray(sortInts);
 
-        System.out.println("NEXT TEST.....");
+        System.out.println("SECOND TEST.....");
         BigInteger[] sortBigIntegers = {BigInteger.valueOf(23232), BigInteger.valueOf(1), BigInteger.valueOf(982342), BigInteger.valueOf(234343), BigInteger.valueOf(3), BigInteger.valueOf(2), BigInteger.valueOf(1), BigInteger.valueOf(9), BigInteger.valueOf(97)};
         printArray(sortBigIntegers);
-        su.sortNumbers(sortBigIntegers);
+        su.sort(sortBigIntegers);
         printArray(sortBigIntegers);
 
+        System.out.println("NEXT TEST.....");
+        String[] sortString = {"Zelda","Test", "Second","Third","Aaron"};
+        printArray(sortString);
+        su.sort(sortString);
+        printArray(sortString);
+
+        
     }
 
     public static void printIntArray(int[] array) {

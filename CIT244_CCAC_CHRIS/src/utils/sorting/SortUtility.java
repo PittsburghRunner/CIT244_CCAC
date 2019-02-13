@@ -17,7 +17,7 @@ public class SortUtility {
      * @param array
      * @return an array of sorted ints
      */
-    public int[] sortNumbers(int[] array) {
+    public int[] sort(int[] array) {
         int cycles = 0;
         int calculations = 0;
         int swaps = 0;
@@ -62,7 +62,7 @@ public class SortUtility {
 //        }
 //        return array;
 //    }
-    public Object[] sortNumbers(Comparable[] array) {
+    public Object[] sort(Comparable[] array) {
         int cycles = 0;
         int calculations = 0;
         int swaps = 0;
@@ -72,8 +72,8 @@ public class SortUtility {
             swapped = false;
             for (int i = 0; i < array.length - 1; i++) {
                 calculations++;
-                Comparable first = (Comparable) array[i];
-                Comparable second = (Comparable) array[i + 1];
+                Comparable first =  array[i];
+                Comparable second = array[i + 1];
                 if (first.compareTo(second) > 0) {
                     array[i] = second;
                     array[i + 1] = first;
