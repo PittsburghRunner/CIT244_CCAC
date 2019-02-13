@@ -63,13 +63,13 @@ public class SortUtility {
         return array;
     }
 
-    public static Long[] sortNumbers(Long[] array) {
+    public static Object[] sortNumbers(Object[] array) {
         Boolean swapped = true;
         while (swapped == true) {
             swapped = false;
             for (int i = 0; i < array.length - 1; i++) {
-                Long first = array[i];
-                Long second = array[i + 1];
+                Comparable first = (Comparable)array[i];
+                Comparable second = (Comparable)array[i + 1];
                 if (first.compareTo(second) > 0) {
                     array[i] = second;
                     array[i + 1] = first;
