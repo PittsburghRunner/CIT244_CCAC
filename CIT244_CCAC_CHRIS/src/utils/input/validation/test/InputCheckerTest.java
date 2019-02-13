@@ -33,7 +33,7 @@ public class InputCheckerTest {
             System.out.println("Checking " + i );
             String input = inputsToCheck[i];
             System.out.println("Running Check");
-            Boolean meets = ic.checkInput(input);
+            boolean meets = ic.checkInput(input);
 
             if (meets) {
                 System.out.println("SUCCESSS! The password: " + input + " meets requirements!");
