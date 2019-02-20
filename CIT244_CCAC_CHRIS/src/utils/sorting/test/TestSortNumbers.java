@@ -16,14 +16,13 @@ import utils.sorting.SortUtility;
 public class TestSortNumbers {
 
     public static void main(String[] args) {
-        
+
         System.out.println("Creating a new sort utility");
         SortUtility su = new SortUtility();
 
-        
         System.out.println("Turning on debugging");
         su.setDebug(true);
-        
+
         System.out.println("FIRST TEST......");
 
         int[] sortInts = new int[]{67, 3345, 999999999, 0, 123, 123653633, 123, 35, 8888, 23, 2342, 222465, 1, 2, 3, 4, 5, 6, 1};
@@ -38,25 +37,30 @@ public class TestSortNumbers {
         printArray(sortBigIntegers);
 
         System.out.println("NEXT TEST.....");
-        String[] sortString = {"Zelda","Test", "Second","Third","Aaron"};
+        String[] sortString = {"Zelda", "Test", "Second", "Third", "Aaron"};
         printArray(sortString);
         su.sort(sortString);
         printArray(sortString);
+//        
+//      System.out.println("FAILED TEST.....");
+//      Comparable[] sortRandomObjects = {"Zelda",BigInteger.valueOf(23232), Long.lowestOneBit(0),"Third","Aaron"};
+//      printArray(sortRandomObjects);
+//      su.sort(sortRandomObjects);
+//      printArray(sortRandomObjects);
 
-        
     }
 
     public static void printIntArray(int[] array) {
         System.out.print("Printing Array:   ");
         for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + ((array.length-1)==i?"\n\n\n":", "));
+            System.out.print(array[i] + ((array.length - 1) == i ? "\n\n\n" : ", "));
         }
     }
 
     public static void printArray(Object[] array) {
         System.out.print("Printing Array:   ");
         for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i].toString() + ((array.length-1)==i?"\n\n\n":", "));
+            System.out.print(array[i].toString() + ((array.length - 1) == i ? "\n\n\n" : ", "));
         }
     }
 }

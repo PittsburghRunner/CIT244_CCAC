@@ -96,7 +96,7 @@ public final class InputChecker {
                     boolean contains = false;
                     String rs = requiredStrings[i];
                     for (int p = 0; p < rs.length(); p++) {
-                        CharSequence character = rs.subSequence(p, p);
+                        CharSequence character = rs.subSequence(p, p+1);
                         if (input.contains(character)) {
                             contains = true;
                         }
@@ -120,10 +120,10 @@ public final class InputChecker {
                 boolean contains = false;
                 String fs = forbiddenStrings[i];
                 for (int p = 0; p < fs.length(); p++) {
-                    CharSequence character = fs.subSequence(p, p);
+                    CharSequence character = fs.subSequence(p, p+1);
                     if (input.contains(character)) {
                         contains = true;
-                        setFeedback(Feedback.ERROR_FORBIDDEN_STRING, "Not Expected: " + character);
+                        setFeedback(Feedback.ERROR_FORBIDDEN_STRING, "Not Expected: " + character.toString());
                     }
                 }
 
@@ -133,15 +133,17 @@ public final class InputChecker {
             }
 
             if (meets == false) {
-                setFeedback(Feedback.FAILURE, "");
+                setFeedback(Feedback.FAILURE, "Nay");
+            } else{
+              setFeedback(Feedback.SUCCESS, "Yay");
             }
 
-            setFeedback(Feedback.SUCCESS, "");
         } catch (Exception e) {
             System.out.println("Error in forbidden characters");
             e.printStackTrace();
             meets = false;
         }
+        
         return meets;
     }
 

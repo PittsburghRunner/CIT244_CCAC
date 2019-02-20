@@ -79,6 +79,7 @@ public class SortUtility {
                     array[i + 1] = first;
                     swaps++;
                     swapped = true;
+                    
                     if (debug) {
                         System.out.println(cycles + ":" + calculations + ":" + swaps + ": Swapping " + second + " for " + first);
                     }
