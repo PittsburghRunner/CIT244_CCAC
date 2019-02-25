@@ -5,14 +5,13 @@
  */
 package week4;
 
-import java.util.HashMap;
+
 
 /**
  *
  * @author christopher.eckles
  */
-public interface Portable {
-    public abstract HashMap export();    
-    public abstract void load(HashMap map);    
+public class XMLUtils {
+
 
 }

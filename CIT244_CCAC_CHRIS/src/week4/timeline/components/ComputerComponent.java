@@ -3,40 +3,44 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package week4;
+package week4.timeline.components;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  *
  * @author christopher.eckles
  */
-public class ComputerComponent extends Timeline implements Portable {
+public class ComputerComponent extends Component  {
 
     int megahertzCPUSpeed;
     int componentReleaseYear;
-    String description;
     double comunicationSpeed;
     String comunicationSpeedUnit;
     String manufacturer;
+    
+    public ComputerComponent(HashMap map){
+        load(map);
+        
+    }
 
     @Override
     public HashMap export() {
         HashMap exportMap = super.export();
+        exportMap.put("object",this.getClass().toString());
         exportMap.put("megahertzCPUSpeed", megahertzCPUSpeed);
         exportMap.put("componentReleaseYear", componentReleaseYear);
         exportMap.put("description", description);
         exportMap.put("comunicationSpeed", comunicationSpeed);
         exportMap.put("comunicationSpeedUnit", comunicationSpeedUnit);
         exportMap.put("manufacturer", manufacturer);
-
         return exportMap;
     }
 
     @Override
     public void load(HashMap map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        super.load(map);
+        
     }
 
 }
