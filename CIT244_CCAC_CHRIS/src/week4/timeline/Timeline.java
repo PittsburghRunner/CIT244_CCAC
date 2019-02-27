@@ -7,12 +7,18 @@ package week4.timeline;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import week4.timeline.components.Component;
 
 /**
  *
  * @author christopher.eckles
  */
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Timeline {
     int startYear;
     String author;
@@ -55,6 +61,14 @@ public class Timeline {
         this.components = components;
     }
         
+    public void exportTimeline(){
+        for(Component component: components){
+            component.export();
+        }
+    }    
+    
+    public void loadTimeline(){
         
-            
+      //  this.components.add(component);
+    }            
 }

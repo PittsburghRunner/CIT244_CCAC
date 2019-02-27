@@ -26,7 +26,7 @@ public class TimelineTest {
         
         ComputerComponent cc = new ComputerComponent(ccMap);
         
-        timeline.getComponents().add(cc);
+        
         
         
         for(Component component : timeline.getComponents()){

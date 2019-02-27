@@ -6,38 +6,43 @@
 package week4.timeline.components;
 
 import java.util.HashMap;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author christopher.eckles
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class HumanInterestComponent extends Component {
 
-    HumanInterestComponent(){
+    public HumanInterestComponent(){
         this.year = 0000;
     }
             
     
-    HumanInterestComponent(int year, String description, String createdBy){
+    public HumanInterestComponent(int year, String description, String createdBy){
         this.year = year;
         this.description = description;
         this.createdBy = createdBy;
     }
     
-    HumanInterestComponent(HashMap map){
+    public HumanInterestComponent(HashMap map){
         load(map);
     }
     
-    @Override
-    public HashMap export() {
-        HashMap exportMap = super.export();
-        exportMap.put("object",this.getClass().toString());
-        return exportMap;
-    }
+//    @Override
+//    public HashMap export() {
+//        HashMap exportMap = super.export();
+//        exportMap.put("object",this.getClass().toString());
+//        return exportMap;
+//    }
 
     @Override
     public void load(HashMap map) {
-        
+        super.load(map);
     }
 
 }

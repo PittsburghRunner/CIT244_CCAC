@@ -7,11 +7,16 @@ package week4.timeline.components;
 
 import week4.timeline.components.interfaces.Portable;
 import java.util.HashMap;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author christopher.eckles
  */
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Component implements Portable, Comparable {
 
     String object;
@@ -20,11 +25,11 @@ public class Component implements Portable, Comparable {
     String description;
     String referenceSourceUrl;
 
-    Component() {
+    public Component() {
         object = this.getClass().toString();
     }
     
-    Component(int year, String description, String createdBy, String referenceSourceUrl){
+    public Component(int year, String description, String createdBy, String referenceSourceUrl){
        
         this.year = year;
         this.description = description;
@@ -33,7 +38,7 @@ public class Component implements Portable, Comparable {
     }
     
 
-    Component(HashMap map) {
+    public Component(HashMap map) {
         load(map);
     }
 
