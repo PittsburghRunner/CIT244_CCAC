@@ -11,8 +11,8 @@ package week4.timeline;
  * @author christopher.eckles
  */
 public class Properties {
-            public static final String TIMELINE_FILE_PATH = "timelinerepository\\";    
+            public static final String TIMELINE_FILE_PATH = "timelinerepository";    
             public static final String TIMELINE_FILE = "TIMELINE";    
-            public static final String TIMELINE_COMPONENT_SUFFIX = ".xml";    
+            public static final String FILE_SUFFIX = ".xml";    
             
 }

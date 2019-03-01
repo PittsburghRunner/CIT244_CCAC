@@ -5,11 +5,13 @@
  */
 package week4.timeline.components;
 
+import java.lang.annotation.Inherited;
 import week4.timeline.components.interfaces.Portable;
 import java.util.HashMap;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import week4.utils.lits.input.PromptParams;
 
 /**
  *
@@ -24,7 +26,7 @@ public class Component implements Portable, Comparable {
     String createdBy;
     String description;
     String referenceSourceUrl;
-
+    
     public Component() {
         object = this.getClass().toString();
     }
@@ -90,6 +92,48 @@ public class Component implements Portable, Comparable {
     "   Description By: " +  description +
     "   Url: " +  referenceSourceUrl;
     }
+
+    public String getObject() {
+        return object;
+    }
+    
+    public void setObject(String object) {
+        this.object = object;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getReferenceSourceUrl() {
+        return referenceSourceUrl;
+    }
+
+    public void setReferenceSourceUrl(String referenceSourceUrl) {
+        this.referenceSourceUrl = referenceSourceUrl;
+    }
+    
+    
 
 }// close class
 
