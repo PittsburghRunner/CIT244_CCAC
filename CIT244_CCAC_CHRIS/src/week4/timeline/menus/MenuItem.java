@@ -14,7 +14,7 @@ import java.util.Arrays;
 public enum MenuItem {
 
     PRINT_COMPONENTS(1, "Print Components", "week4.timeline.TimelineWorld", "printComponents"),
-    ADD_COMPONENT(2, "Add a new timeline Component", "week4.timeline.TimelineWorld", "addComponents"),
+    ADD_COMPONENT(2, "Add a new timeline Component", "week4.timeline.TimelineWorld", "addComponent"),
     EDIT_COMPONENT(3, "Edit an existing timeline Component", "week4.timeline.TimelineWorld", "editComponent"),
     SAVE_TIMELINE(4, "Save timeline to file.", "week4.timeline.TimelineWorld", "saveTimeline"),
     SORT_TIMELINE(5, "Sort timeline (Using bubble sort.)", "week4.timeline.TimelineWorld", "bubbleSort"),

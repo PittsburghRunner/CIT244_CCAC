@@ -3,14 +3,12 @@
     <startYear>0</startYear>
     <components>
         <object>class week4.timeline.components.ComputerComponent</object>
-        <year>2007</year>
         <createdBy>Apple</createdBy>
         <description>iPhone</description>
         <referenceSourceUrl>http://www.apple.com/iPhone</referenceSourceUrl>
     </components>
     <components>
         <object>class week4.timeline.components.HumanInterestComponent</object>
-        <year>2018</year>
         <createdBy>Microsoft</createdBy>
         <description>Surface Pro</description>
         <referenceSourceUrl>http://www.microsoft.com</referenceSourceUrl>

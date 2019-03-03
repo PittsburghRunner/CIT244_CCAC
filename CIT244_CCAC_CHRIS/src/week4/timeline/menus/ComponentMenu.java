@@ -62,7 +62,7 @@ public enum ComponentMenu {
     
     
     public static ComponentMenu findByClassName(final String className) {
-        return Arrays.stream(values()).filter(value -> value.getComponentClass().equals(className)).findFirst().orElse(null);
+        return Arrays.stream(values()).filter(value -> value.getComponentClass().toString().equals(className)).findFirst().orElse(null);
     }
 
 }

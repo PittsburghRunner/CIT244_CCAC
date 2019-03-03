@@ -5,6 +5,7 @@
  */
 package week4.timeline.components;
 
+import java.util.Date;
 import java.util.HashMap;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -19,12 +20,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class HumanInterestComponent extends Component {
 
     public HumanInterestComponent(){
-        this.year = 0000;
+        this.date = new Date();
     }
             
     
-    public HumanInterestComponent(int year, String description, String createdBy){
-        this.year = year;
+    public HumanInterestComponent(Date date, String description, String createdBy){
+        this.date = date;
         this.description = description;
         this.createdBy = createdBy;
     }

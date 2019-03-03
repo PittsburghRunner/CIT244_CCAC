@@ -5,12 +5,13 @@
  */
 package week4.timeline.components;
 
-import java.lang.annotation.Inherited;
+import java.util.Date;
 import week4.timeline.components.interfaces.Portable;
 import java.util.HashMap;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import week4.utils.lits.ListType;
 import week4.utils.lits.input.PromptParams;
 
 /**
@@ -21,24 +22,28 @@ import week4.utils.lits.input.PromptParams;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Component implements Portable, Comparable {
 
+    @PromptParams(hidden = true)
     String object;
-    int year;
+    @PromptParams(name = "Date", min = 1900, max = 2022, listType = ListType.DATE)
+    Date date;
+    @PromptParams(name = "Created By", min = 4, max = 300, listType = ListType.STRING_MIN_MAX)
     String createdBy;
+    @PromptParams(name = "Description", min = 4, max = 300, listType = ListType.STRING_MIN_MAX)
     String description;
+    @PromptParams(name = "Reference Source URL", min = 4, max = 300, listType = ListType.STRING_MIN_MAX)
     String referenceSourceUrl;
-    
+
     public Component() {
         object = this.getClass().toString();
     }
-    
-    public Component(int year, String description, String createdBy, String referenceSourceUrl){
-       
-        this.year = year;
+
+    public Component(Date date, String description, String createdBy, String referenceSourceUrl) {
+
+        this.date = date;
         this.description = description;
         this.createdBy = createdBy;
         this.referenceSourceUrl = referenceSourceUrl;
     }
-    
 
     public Component(HashMap map) {
         load(map);
@@ -48,7 +53,7 @@ public class Component implements Portable, Comparable {
     public HashMap export() {
         HashMap exportMap = new HashMap();
         exportMap.put("object", this.getClass().toString());
-        exportMap.put("year", year);
+        exportMap.put("date", date);
         exportMap.put("createdBy", createdBy);
         exportMap.put("description", description);
         exportMap.put("referenceSourceUrl", referenceSourceUrl);
@@ -58,21 +63,21 @@ public class Component implements Portable, Comparable {
 
     @Override
     public void load(HashMap map) {
-       object = (String) map.getOrDefault("object", this.getClass().toString());
-       year = (int) map.getOrDefault("year", 0000);
-       createdBy = (String) map.getOrDefault("createdBy", "");
-       description = (String) map.getOrDefault("description", "");
-       referenceSourceUrl = (String) map.getOrDefault("referenceSourceUrl", "");
+        object = (String) map.getOrDefault("object", this.getClass().toString());
+        date = (Date) map.getOrDefault("year", new Date());
+        createdBy = (String) map.getOrDefault("createdBy", "");
+        description = (String) map.getOrDefault("description", "");
+        referenceSourceUrl = (String) map.getOrDefault("referenceSourceUrl", "");
     }
-    
+
     @Override
     public int compareTo(Object o) {
         if (o instanceof Component) {
             Component t = (Component) o;
-            if (this.year > t.year) {
-                return 1;
-            } else if (this.year < t.year) {
-                return -1;
+            if (this.date.compareTo(t.getDate()) != 0) {
+                return this.date.compareTo(t.getDate());
+            } else if (this.description.compareTo(t.description) == 0) {
+                return this.description.compareTo(t.description);
             } else {
                 if (this.createdBy.compareTo(t.createdBy) == 0) {
                     return this.description.compareTo(t.description);
@@ -83,30 +88,30 @@ public class Component implements Portable, Comparable {
         }
         return 0;
     }
-    
+
     @Override
-    public String toString(){
-        return    "Object: " + object +
-    "   Year: " +  year +
-    "   Created By: " +  createdBy +
-    "   Description By: " +  description +
-    "   Url: " +  referenceSourceUrl;
+    public String toString() {
+        return "Object: " + object
+                + "   Date: " + date
+                + "   Created By: " + createdBy
+                + "   Description By: " + description
+                + "   Url: " + referenceSourceUrl;
     }
 
     public String getObject() {
         return object;
     }
-    
+
     public void setObject(String object) {
         this.object = object;
     }
 
-    public int getYear() {
-        return year;
+    public Date getDate() {
+        return date;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getCreatedBy() {
@@ -132,8 +137,6 @@ public class Component implements Portable, Comparable {
     public void setReferenceSourceUrl(String referenceSourceUrl) {
         this.referenceSourceUrl = referenceSourceUrl;
     }
-    
-    
 
 }// close class
 

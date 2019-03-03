@@ -5,7 +5,7 @@
  */
 package week4.utils.lits.input;
 
-import java.lang.reflect.Method;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import week4.utils.lits.ListType;
 
@@ -15,13 +15,13 @@ import week4.utils.lits.ListType;
  */
 public class Prompt {
     String prompt;
-    Method method;
+    Field field;
     ListType listType;
     HashMap<String,String> list;
     
- public Prompt(String p, Method m, HashMap<String,String> l, ListType lt){
+ public Prompt(String p, Field f, HashMap<String,String> l, ListType lt){
       prompt = p;
-      method = m;
+      field = f;
       list = l;
       listType = lt;
 
@@ -31,8 +31,8 @@ public class Prompt {
         return prompt;
     }
 
-    public Method getMethod() {
-        return method;
+    public Field getField() {
+        return field;
     }
 
     public ListType getListType() {

@@ -17,18 +17,17 @@ import week4.utils.lits.ListType;
  * @author ceckles
  */
 @Inherited
-@Target(ElementType.METHOD)
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-
-
-public @interface PromptParams {
+public @interface PromptParams{
 
     public String name() default "";
-    public String min() default "";
-    public String max() default "";
+    public int min() default 0;
+    public int max() default 100;
     public String replacements() default "";
     public String listOfValues() default "";
     public ListType listType() default ListType.DEFAULT;
-
-
+    public boolean hidden() default false;
+    
 }
+
