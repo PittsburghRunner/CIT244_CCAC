@@ -20,7 +20,7 @@ public enum ComponentMenu {
     COMPONENT(1, "General Component", Component.class),
     COMPUTER_COMPONENT(2, "Computer Component", ComputerComponent.class),
     HUMAN_INTEREST_COMPONENT(3, "Human Interest Component", HumanInterestComponent.class),
-    EXIT(4, "Exit Application", TimelineWorld.class);
+    EXIT(4, "Exit Component Menu", TimelineWorld.class);
 
     int menuItemid;
     String menuItemDescription;
