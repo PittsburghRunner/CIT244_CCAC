@@ -21,9 +21,11 @@ public class Prompt {
     ListType listType;
     HashMap<String,String> list;
     
- public Prompt(String p, Field f, int min, int max, HashMap<String,String> l, ListType lt){
+ public Prompt(String p, Field f, int mn, int mx, HashMap<String,String> l, ListType lt){
       prompt = p;
       field = f;
+      min = mn;
+      max = mx;
       list = l;
       listType = lt;
 

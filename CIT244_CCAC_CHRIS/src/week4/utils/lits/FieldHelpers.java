@@ -33,19 +33,24 @@ public class FieldHelpers {
                 for (Annotation a : annotationLst) {
                     if (a instanceof PromptParams) {
                         PromptParams pp = (PromptParams) a;
+                        if(pp.hidden()==true){
+                            break;
+                        }
+                        System.out.println("pp min: " + pp.min());
                         min = pp.min();
                         max = pp.max();
-                        System.out.println(pp.name());
+                        listType = pp.listType();
+                        //System.out.println(pp.name());
                         prompt = pp.listType().prompt.replace("%name", pp.name());
                         HashMap<String, Object> replacements = splitStringToMap(pp.replacements());
-                        replacements.put("min", Integer.valueOf(pp.min()));
-                        replacements.put("max", Integer.valueOf(pp.max()));
+                        replacements.put("min", pp.min());
+                        replacements.put("max", pp.max());
                         prompt = replaceUsingHashmap(prompt, replacements);
-                        ;
                         list = splitStringToMap(pp.listOfValues());
                     }
                 }
                 Prompt p;
+                System.out.println("printing min " + min);
                 p = new Prompt(prompt, field, min, max, list, listType);
                 //System.out.println(p.getField() + " - " + p.getPrompt());
                 prompts.add(p);

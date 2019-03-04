@@ -7,8 +7,10 @@ package week4.timeline;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.TimeZone;
 
 /**
  *
@@ -21,12 +23,13 @@ public class InputUtil {
 
         int input = -1;
         while (input < min || input > max) {
-            if(preset != 0){
-                System.out.print("Type 0 to keep your previous entry: ");
-            }            try {
-                
+            if (preset != 0) {
+                System.out.print("Type 0 to keep your previous entry (" + preset + "): ");
+            }
+            try {
+
                 input = inputScanner.nextInt();
-                if (input == 0 && preset != 0){
+                if (input == 0 && preset != 0) {
                     return preset;
                 }
             } catch (Exception e) {
@@ -36,45 +39,51 @@ public class InputUtil {
         }
         return input;
     }
-    
-    public static String waitForStringInput(int min, int max,String preset) {
+
+    public static String waitForStringInput(int min, int max, String preset) {
         Scanner inputScanner = new Scanner(System.in);
 
         String input = "";
         while (input.length() < min || input.length() > max) {
-            if(preset != null){
-                System.out.print("Type 0 to keep your previous entry: ");
+            if (preset != null) {
+                System.out.print("Type 0 to keep your previous entry (" + preset + "): ");
             }
             try {
                 input = inputScanner.next();
-                if (input.equals("0") && preset !=null){
+                if (input.equals("0") && preset != null) {
                     return preset;
                 }
             } catch (Exception e) {
                 System.out.println("Bad Input. Try again.");
             }
-            
+
         }
         return input;
     }
-    
-        public static Date waitForDateInput(int min, int max, Date preset) throws ParseException {
+
+    public static Date waitForDateInput(int min, int max, Date preset) throws ParseException {
         Scanner inputScanner = new Scanner(System.in);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        sdf.setTimeZone(TimeZone.getTimeZone(ZoneId.systemDefault()));
         SimpleDateFormat sdfyear = new SimpleDateFormat("yyyy");
+        sdfyear.setTimeZone(TimeZone.getTimeZone(ZoneId.systemDefault()));
+        System.out.println("String value of Min:" + min);
         Date minDate = sdfyear.parse(String.valueOf(min));
         Date maxDate = sdfyear.parse(String.valueOf(max));
 
         Date date = new Date();
         String input = "";
-        
+        System.out.println(minDate);
+        System.out.println(maxDate);
+
         while (date.compareTo(minDate) < 0 || date.compareTo(maxDate) > 0) {
-            if(preset != null){
-                System.out.print("Type 0 to keep your previous entry: ");
+            System.out.println(date);
+            if (preset != null) {
+                System.out.print("Type 0 to keep your previous entry (" + preset + "): ");
             }
             try {
                 input = inputScanner.next();
-                if (input.equals("0") && preset !=null){
+                if (input.equals("0") && preset != null) {
                     return preset;
                 }
                 date = sdf.parse(input);

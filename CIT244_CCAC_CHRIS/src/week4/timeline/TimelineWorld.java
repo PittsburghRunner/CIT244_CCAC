@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -36,6 +37,7 @@ public class TimelineWorld {
 
     private static Timeline timeline = new Timeline();
     private static boolean saveOnExit = true;
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-dd-MM");
 
     public static void main(String[] args) {
 
@@ -64,13 +66,21 @@ public class TimelineWorld {
 
     private static void defaultData(Timeline timeline) {
         HashMap ccMap = new HashMap();
-        ccMap.put("date", new Date());
+        ccMap.put("date", sdf.format("2007-06-29"));
         ccMap.put("createdBy", "Apple");
         ccMap.put("description", "iPhone");
         ccMap.put("referenceSourceUrl", "http://www.apple.com/iPhone");
-
         ComputerComponent cc = new ComputerComponent(ccMap);
         timeline.getComponents().add(cc);
+
+        HashMap<String, Object> hicMap = new HashMap();
+        hicMap.put("date", sdf.format("2013-09-02"));
+        hicMap.put("createdBy", "Microsoft");
+        hicMap.put("description", "Surface Pro");
+        hicMap.put("referenceSourceUrl", "https://en.wikipedia.org/wiki/Surface_Pro");
+        HumanInterestComponent hic = new HumanInterestComponent(hicMap);
+        timeline.getComponents().add(hic);
+
     }
 
     public static void printComponents() {
@@ -94,6 +104,7 @@ public class TimelineWorld {
             if (selected == MenuItem.EXIT.getMenuItemid()) {
                 exit = true;
             } else {
+
                 invokeMethod(mi.getMethodClass(), mi.getMethodToCall());
             }
             //TODO: add sleep
@@ -119,6 +130,10 @@ public class TimelineWorld {
                 Class c = ComponentMenu.findById(selected).getComponentClass();
                 System.out.println("class: " + c);
                 ArrayList<Prompt> prompts = FieldHelpers.retrieveClassFieldsForPrompting(c);
+//                for (Prompt p : prompts) {
+//                    System.out.println(p.getField().getName() +   " - min:" + p.getMin()
+//                            + " - max:" + p.getMax() + " - prompt:" + p.getPrompt());
+//                }
                 HashMap<String, Object> inputMap = new HashMap<>();
                 inputMap = promptForInputMap(prompts, inputMap);
                 Object o = c.newInstance();
@@ -139,6 +154,7 @@ public class TimelineWorld {
                 } else {
                     System.out.println("Unable to add object");
                 }
+                printComponents();
 
             }
             //TODO: add sleep
@@ -160,16 +176,24 @@ public class TimelineWorld {
 
     public static HashMap<String, Object> promptForInputMap(ArrayList<Prompt> prompts, HashMap<String, Object> inputMap) throws ParseException {
         for (Prompt p : prompts) {
+            String name = p.getField().getName();
+
+            //print the list of values for a linked list
             for (Entry me : p.getList().entrySet()) {
                 System.out.println(me.getKey() + " - " + me.getValue());
             }
             System.out.println(p.getPrompt());
+            System.out.println(p.getListType());
             if (p.getListType().getClassType() == ListType.DEFAULT.getClassType()) {
-                String input = InputUtil.waitForStringInput(p.getMin(), p.getMax(), (String) inputMap.get(p.getField().toString()));
+                String input = InputUtil.waitForStringInput(p.getMin(), p.getMax(), (String) inputMap.get(name));
+                inputMap.put(name, input);
             } else if (p.getListType().getClassType() == ListType.INTEGER.getClassType()) {
-                int input = InputUtil.waitForIntInput(p.getMin(), p.getMax(), (int) inputMap.get(p.getField().toString()));
+                int input = InputUtil.waitForIntInput(p.getMin(), p.getMax(), (int) inputMap.get(name));
+                inputMap.put(name, input);
             } else if (p.getListType().getClassType() == ListType.DATE.getClassType()) {
-                Date input = InputUtil.waitForDateInput(p.getMin(), p.getMax(), (Date) inputMap.get(p.getField().toString()));
+                System.out.println("In date get min: " + p.getMin());
+                Date input = InputUtil.waitForDateInput(p.getMin(), p.getMax(), (Date) inputMap.get(name));
+                inputMap.put(name, input);
             }
             //if()
             //int selection = InputUtil.waitForIntInput(p.getList().size());
