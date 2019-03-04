@@ -27,7 +27,6 @@ public class XMLUtilities {
         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
         jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
-        //Print XML String to Console
         StringWriter sw = new StringWriter();
 
         //Write XML to StringWriter

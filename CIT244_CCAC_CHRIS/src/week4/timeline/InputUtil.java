@@ -71,7 +71,7 @@ public class InputUtil {
         Date minDate = sdfyear.parse(String.valueOf(min));
         Date maxDate = sdfyear.parse(String.valueOf(max));
 
-        Date date = new Date();
+        Date date = sdfyear.parse("9999");
         String input = "";
         System.out.println(minDate);
         System.out.println(maxDate);
