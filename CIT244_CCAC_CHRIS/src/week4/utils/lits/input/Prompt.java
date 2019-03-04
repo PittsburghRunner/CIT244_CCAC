@@ -14,12 +14,14 @@ import week4.utils.lits.ListType;
  * @author ceckles
  */
 public class Prompt {
+    int min;
+    int max;
     String prompt;
     Field field;
     ListType listType;
     HashMap<String,String> list;
     
- public Prompt(String p, Field f, HashMap<String,String> l, ListType lt){
+ public Prompt(String p, Field f, int min, int max, HashMap<String,String> l, ListType lt){
       prompt = p;
       field = f;
       list = l;
@@ -42,6 +44,16 @@ public class Prompt {
     public HashMap<String, String> getList() {
         return list;
     }
+
+    public int getMin() {
+        return min;
+    }
+
+    public int getMax() {
+        return max;
+    }
+    
+    
 
 
 

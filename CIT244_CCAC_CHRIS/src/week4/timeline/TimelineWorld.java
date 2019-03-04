@@ -8,7 +8,9 @@ package week4.timeline;
 import java.io.FileNotFoundException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -21,9 +23,9 @@ import week4.timeline.io.files.XMLUtilities;
 import week4.timeline.components.Component;
 import week4.timeline.components.ComputerComponent;
 import week4.timeline.components.HumanInterestComponent;
-import week4.timeline.components.interfaces.Portable;
 import week4.timeline.menus.ComponentMenu;
 import week4.utils.lits.FieldHelpers;
+import week4.utils.lits.ListType;
 import week4.utils.lits.input.Prompt;
 
 /**
@@ -68,6 +70,7 @@ public class TimelineWorld {
         ccMap.put("referenceSourceUrl", "http://www.apple.com/iPhone");
 
         ComputerComponent cc = new ComputerComponent(ccMap);
+        timeline.getComponents().add(cc);
     }
 
     public static void printComponents() {
@@ -83,8 +86,11 @@ public class TimelineWorld {
             int selected = 0;
             System.out.println("\n\nMain Menu:\n");
             MenuItem.printEntireMenu();
-            selected = InputUtil.waitForIntInput(MenuItem.values().length);
+            selected = InputUtil.waitForIntInput(1, MenuItem.values().length, 0);
             MenuItem mi = MenuItem.findById(selected);
+            if (mi == null) {
+                break;
+            }
             if (selected == MenuItem.EXIT.getMenuItemid()) {
                 exit = true;
             } else {
@@ -95,15 +101,17 @@ public class TimelineWorld {
 
     }
 
-    private static void addComponent() throws InstantiationException, IllegalAccessException {
+    private static void addComponent() throws InstantiationException, IllegalAccessException, ParseException {
         boolean exit = false;
         while (!exit) {
             int selected = 0;
             System.out.println("\n\nAdd New Component:\n");
             ComponentMenu.printEntireMenu();
-            selected = InputUtil.waitForIntInput(ComponentMenu.values().length);
+            selected = InputUtil.waitForIntInput(1, ComponentMenu.values().length, 0);
             ComponentMenu mi = ComponentMenu.findById(selected);
-
+            if (mi == null) {
+                break;
+            }
             if (selected == ComponentMenu.EXIT.getMenuItemid()) {
                 exit = true;
             } else {
@@ -111,28 +119,26 @@ public class TimelineWorld {
                 Class c = ComponentMenu.findById(selected).getComponentClass();
                 System.out.println("class: " + c);
                 ArrayList<Prompt> prompts = FieldHelpers.retrieveClassFieldsForPrompting(c);
-                HashMap<String,Object> inputMap = new HashMap<>();
-                inputMap = promptForInputMap(prompts,inputMap);
+                HashMap<String, Object> inputMap = new HashMap<>();
+                inputMap = promptForInputMap(prompts, inputMap);
                 Object o = c.newInstance();
-                if (o instanceof Component){
-                   Component comp = (Component) o;
-                   comp.load(inputMap);
-                   timeline.components.add(comp);
-                   
-                } else if (o instanceof ComputerComponent){
-                   ComputerComponent comp = (ComputerComponent) o;
-                   comp.load(inputMap);
-                   timeline.components.add(comp);
+                if (o instanceof Component) {
+                    Component comp = (Component) o;
+                    comp.load(inputMap);
+                    timeline.components.add(comp);
 
-                } else if (o instanceof HumanInterestComponent){
-                   HumanInterestComponent comp = (HumanInterestComponent) o;
-                   comp.load(inputMap);
-                   timeline.components.add(comp);
+                } else if (o instanceof ComputerComponent) {
+                    ComputerComponent comp = (ComputerComponent) o;
+                    comp.load(inputMap);
+                    timeline.components.add(comp);
+
+                } else if (o instanceof HumanInterestComponent) {
+                    HumanInterestComponent comp = (HumanInterestComponent) o;
+                    comp.load(inputMap);
+                    timeline.components.add(comp);
                 } else {
                     System.out.println("Unable to add object");
                 }
-                    
-
 
             }
             //TODO: add sleep
@@ -152,19 +158,30 @@ public class TimelineWorld {
 
     }
 
-    public static HashMap<String,Object> promptForInputMap(ArrayList<Prompt> prompts,HashMap<String,Object> inputMap){
+    public static HashMap<String, Object> promptForInputMap(ArrayList<Prompt> prompts, HashMap<String, Object> inputMap) throws ParseException {
         for (Prompt p : prompts) {
-                    for (Entry me : p.getList().entrySet()) {
-                        System.out.println(me.getKey() + " - " + me.getValue());
-                    }
-                    System.out.println(p.getPrompt());
-                    //if()
-                    //int selection = InputUtil.waitForIntInput(p.getList().size());
-                    //=  p.getList().get(selection);
-                }
+            for (Entry me : p.getList().entrySet()) {
+                System.out.println(me.getKey() + " - " + me.getValue());
+            }
+            System.out.println(p.getPrompt());
+            if (p.getListType().getClassType() == ListType.DEFAULT.getClassType()) {
+                String input = InputUtil.waitForStringInput(p.getMin(), p.getMax(), (String) inputMap.get(p.getField().toString()));
+            } else if (p.getListType().getClassType() == ListType.INTEGER.getClassType()) {
+                int input = InputUtil.waitForIntInput(p.getMin(), p.getMax(), (int) inputMap.get(p.getField().toString()));
+            } else if (p.getListType().getClassType() == ListType.DATE.getClassType()) {
+                Date input = InputUtil.waitForDateInput(p.getMin(), p.getMax(), (Date) inputMap.get(p.getField().toString()));
+            }
+            //if()
+            //int selection = InputUtil.waitForIntInput(p.getList().size());
+            //=  p.getList().get(selection);
+        }
         return inputMap;
     }
-    
+
+    public static void sort() {
+        Collections.sort(timeline.getComponents());
+    }
+
     public static void setSaveOnExitToFalse() {
         saveOnExit = false;
     }
@@ -175,7 +192,6 @@ public class TimelineWorld {
         } catch (JAXBException | FileNotFoundException ex) {
             Logger.getLogger(TimelineWorld.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Unable to save.");
-            return;
         }
     }
 }

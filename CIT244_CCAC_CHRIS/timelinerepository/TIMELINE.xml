@@ -3,14 +3,9 @@
     <startYear>0</startYear>
     <components>
         <object>class week4.timeline.components.ComputerComponent</object>
+        <date>2019-03-03T22:56:03.322-05:00</date>
         <createdBy>Apple</createdBy>
         <description>iPhone</description>
         <referenceSourceUrl>http://www.apple.com/iPhone</referenceSourceUrl>
-    </components>
-    <components>
-        <object>class week4.timeline.components.HumanInterestComponent</object>
-        <createdBy>Microsoft</createdBy>
-        <description>Surface Pro</description>
-        <referenceSourceUrl>http://www.microsoft.com</referenceSourceUrl>
     </components>
 </timeline>

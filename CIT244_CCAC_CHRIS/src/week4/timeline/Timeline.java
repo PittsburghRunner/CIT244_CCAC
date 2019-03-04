@@ -6,7 +6,6 @@
 package week4.timeline;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -23,7 +22,7 @@ public class Timeline {
     int startYear;
     String author;
     String Description;
-    Collection<Component> components = new ArrayList<>();
+    ArrayList<Component> components = new ArrayList<>();
     
         public int generateYearSince(int currYear) {
         return currYear - startYear;
@@ -53,11 +52,11 @@ public class Timeline {
         this.Description = Description;
     }
 
-    public Collection<Component> getComponents() {
+    public ArrayList<Component> getComponents() {
         return components;
     }
 
-    public void setComponents(Collection<Component> components) {
+    public void setComponents(ArrayList<Component> components) {
         this.components = components;
     }
         

@@ -17,7 +17,7 @@ public enum MenuItem {
     ADD_COMPONENT(2, "Add a new timeline Component", "week4.timeline.TimelineWorld", "addComponent"),
     EDIT_COMPONENT(3, "Edit an existing timeline Component", "week4.timeline.TimelineWorld", "editComponent"),
     SAVE_TIMELINE(4, "Save timeline to file.", "week4.timeline.TimelineWorld", "saveTimeline"),
-    SORT_TIMELINE(5, "Sort timeline (Using bubble sort.)", "week4.timeline.TimelineWorld", "bubbleSort"),
+    SORT_TIMELINE(5, "Sort timeline", "week4.timeline.TimelineWorld", "sort"),
     DONT_SAVE_ON_EXIT(6, "Don't save on exit", "week4.timeline.TimelineWorld", "setSaveOnExitToFalse"),
     EXIT(7, "Exit Application", "week4.timeline.TimelineWorld", "setSaveOnExitToFalse");
 

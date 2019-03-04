@@ -74,16 +74,12 @@ public class Component implements Portable, Comparable {
     public int compareTo(Object o) {
         if (o instanceof Component) {
             Component t = (Component) o;
-            if (this.date.compareTo(t.getDate()) != 0) {
-                return this.date.compareTo(t.getDate());
-            } else if (this.description.compareTo(t.description) == 0) {
-                return this.description.compareTo(t.description);
+            if (this.getDate().compareTo(t.getDate()) != 0) {
+                return this.getDate().compareTo(t.getDate());
+            } else if (this.getDescription().compareTo(t.getDescription()) != 0) {
+                return this.getDescription().compareTo(t.getDescription());
             } else {
-                if (this.createdBy.compareTo(t.createdBy) == 0) {
-                    return this.description.compareTo(t.description);
-                } else {
-                    return this.createdBy.compareTo(t.createdBy);
-                }
+                return this.getCreatedBy().compareTo(t.getCreatedBy());
             }
         }
         return 0;

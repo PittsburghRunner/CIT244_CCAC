@@ -9,6 +9,8 @@ import java.util.HashMap;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import week4.utils.lits.ListType;
+import week4.utils.lits.input.PromptParams;
 
 /**
  *
@@ -18,10 +20,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ComputerComponent extends Component {
 
+    @PromptParams(name = "MHZ CPU Speed", min = 1, max = 0, listType = ListType.INTEGER)
     int megahertzCPUSpeed;
-    int componentReleaseYear;
+    @PromptParams(name = "Communication Speed", min = 1, max = 0, listType = ListType.INTEGER)
     double comunicationSpeed;
+    @PromptParams(name = "Communication Speed Unit", min = 1, max = 20, listType = ListType.DEFAULT)
     String comunicationSpeedUnit;
+    @PromptParams(name = "Manufacturer", min = 1, max = 300, listType = ListType.DEFAULT)
     String manufacturer;
 
     public ComputerComponent() {
@@ -37,7 +42,6 @@ public class ComputerComponent extends Component {
         HashMap exportMap = super.export();
         exportMap.put("object", this.getClass().toString());
         exportMap.put("megahertzCPUSpeed", megahertzCPUSpeed);
-        exportMap.put("componentReleaseYear", componentReleaseYear);
         exportMap.put("description", description);
         exportMap.put("comunicationSpeed", comunicationSpeed);
         exportMap.put("comunicationSpeedUnit", comunicationSpeedUnit);
@@ -49,7 +53,6 @@ public class ComputerComponent extends Component {
     public void load(HashMap map) {
         super.load(map);
         megahertzCPUSpeed = (int) map.getOrDefault(megahertzCPUSpeed, 0);
-        componentReleaseYear = (int) map.getOrDefault(componentReleaseYear, 0);
         comunicationSpeed = (double) map.getOrDefault(comunicationSpeed, 0d);
         comunicationSpeedUnit = (String) map.getOrDefault(comunicationSpeedUnit, "");
         manufacturer = (String) map.getOrDefault(manufacturer, "");
