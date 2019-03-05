@@ -128,7 +128,6 @@ public class TimelineWorld {
             } else {
                 //create a new object based on annotation.
                 Class c = ComponentMenu.findById(selected).getComponentClass();
-                System.out.println("class: " + c);
                 ArrayList<Prompt> prompts = FieldHelpers.retrieveClassFieldsForPrompting(c);
 //                for (Prompt p : prompts) {
 //                    System.out.println(p.getField().getName() +   " - min:" + p.getMin()
@@ -182,7 +181,7 @@ public class TimelineWorld {
             for (Entry me : p.getList().entrySet()) {
                 System.out.println(me.getKey() + " - " + me.getValue());
             }
-            System.out.println(p.getPrompt());
+            System.out.print(p.getPrompt());
             if (p.getListType().getClassType() == ListType.DEFAULT.getClassType()) {
                 String input = InputUtil.waitForStringInput(p.getMin(), p.getMax(), (String) inputMap.get(name));
                 inputMap.put(name, input);
