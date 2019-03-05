@@ -33,8 +33,7 @@ public class InputUtil {
                     return preset;
                 }
             } catch (Exception e) {
-                System.out.println("Bad Input");
-                return input;
+                System.out.println("Bad Input. Try agin.");
             }
         }
         return input;
@@ -67,17 +66,13 @@ public class InputUtil {
         sdf.setTimeZone(TimeZone.getTimeZone(ZoneId.systemDefault()));
         SimpleDateFormat sdfyear = new SimpleDateFormat("yyyy");
         sdfyear.setTimeZone(TimeZone.getTimeZone(ZoneId.systemDefault()));
-        System.out.println("String value of Min:" + min);
         Date minDate = sdfyear.parse(String.valueOf(min));
         Date maxDate = sdfyear.parse(String.valueOf(max));
 
         Date date = sdfyear.parse("9999");
         String input = "";
-        System.out.println(minDate);
-        System.out.println(maxDate);
 
         while (date.compareTo(minDate) < 0 || date.compareTo(maxDate) > 0) {
-            System.out.println(date);
             if (preset != null) {
                 System.out.print("Type 0 to keep your previous entry (" + preset + "): ");
             }

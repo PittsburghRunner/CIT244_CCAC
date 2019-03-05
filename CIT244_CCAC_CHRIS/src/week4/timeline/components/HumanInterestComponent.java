@@ -10,6 +10,8 @@ import java.util.HashMap;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import week4.utils.lits.ListType;
+import week4.utils.lits.input.PromptParams;
 
 /**
  *
@@ -19,31 +21,46 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class HumanInterestComponent extends Component {
 
+    @PromptParams(name = "Is this really interesting", min = 0, max = 1, listType = ListType.BOOLEAN)
+    boolean isInteresting;
+
+    
     public HumanInterestComponent(){
-        this.date = new Date();
+        setDate(new Date());
     }
             
     
     public HumanInterestComponent(Date date, String description, String createdBy){
-        this.date = date;
-        this.description = description;
-        this.createdBy = createdBy;
+        setDate(date);
+        setDescription(description);
+        setCreatedBy(createdBy);
     }
     
     public HumanInterestComponent(HashMap map){
         load(map);
     }
     
-//    @Override
-//    public HashMap export() {
-//        HashMap exportMap = super.export();
-//        exportMap.put("object",this.getClass().toString());
-//        return exportMap;
-//    }
+    @Override
+    public HashMap export() {
+        HashMap exportMap = super.export();
+        exportMap.put("isInteresting",isInteresting);
+        return exportMap;
+    }
 
     @Override
     public void load(HashMap map) {
+        isInteresting = (Boolean) map.getOrDefault("isInteresting",true);
         super.load(map);
     }
+
+    public boolean isIsInteresting() {
+        return isInteresting;
+    }
+
+    public void setIsInteresting(boolean isInteresting) {
+        this.isInteresting = isInteresting;
+    }
+    
+    
 
 }

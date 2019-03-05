@@ -13,7 +13,7 @@ import utils.input.validation.InputChecker;
  */
 public class InputCheckerTest {
 
-    public static void main(String[] args) {
+    public static void notmain(String[] args) {
         String inputsToCheck[] = new String[]{"test", "test1", "test!", "Test!34"};
         InputChecker ic = new InputChecker();
 

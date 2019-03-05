@@ -6,6 +6,7 @@
 package week4.utils.lits.input;
 
 import java.lang.reflect.Field;
+import java.util.Comparator;
 import java.util.HashMap;
 import week4.utils.lits.ListType;
 
@@ -13,23 +14,30 @@ import week4.utils.lits.ListType;
  *
  * @author ceckles
  */
-public class Prompt {
+public class Prompt implements Comparable {
+
+    int order;
     int min;
     int max;
     String prompt;
     Field field;
     ListType listType;
-    HashMap<String,String> list;
-    
- public Prompt(String p, Field f, int mn, int mx, HashMap<String,String> l, ListType lt){
-      prompt = p;
-      field = f;
-      min = mn;
-      max = mx;
-      list = l;
-      listType = lt;
+    HashMap<String, String> list;
 
-  }
+    public Prompt(int o, String p, Field f, int mn, int mx, HashMap<String, String> l, ListType lt) {
+        order = o;
+        prompt = p;
+        field = f;
+        min = mn;
+        max = mx;
+        list = l;
+        listType = lt;
+
+    }
+
+    public int getOrder() {
+        return order;
+    }
 
     public String getPrompt() {
         return prompt;
@@ -54,10 +62,17 @@ public class Prompt {
     public int getMax() {
         return max;
     }
-    
-    
 
-
-
-  
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof Prompt) {
+            Prompt p = (Prompt) o;
+            if (this.getOrder() > p.getOrder()) {
+                return -1;
+            } else if (this.getOrder() < p.getOrder()) {
+                return 1;
+            }
+        }
+        return 0;
+    }
 }

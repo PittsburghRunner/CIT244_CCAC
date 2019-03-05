@@ -23,15 +23,15 @@ import week4.utils.lits.input.PromptParams;
 public class Component implements Portable, Comparable {
 
     @PromptParams(hidden=true)
-    String object;
+    private String object;
     @PromptParams(name="Date", min=1900, max=2022, listType=ListType.DATE)
-    Date date;
+    private Date date;
     @PromptParams(name="Created By", min=4, max=300, listType=ListType.STRING_MIN_MAX)
-    String createdBy;
+    private String createdBy;
     @PromptParams(name="Description", min=4, max=300, listType=ListType.STRING_MIN_MAX)
-    String description;
+    private String description;
     @PromptParams(name="Reference Source URL", min=4, max=300, listType=ListType.STRING_MIN_MAX)
-    String referenceSourceUrl;
+    private String referenceSourceUrl;
 
     public Component() {
         object=this.getClass().toString();
