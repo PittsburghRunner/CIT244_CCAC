@@ -20,14 +20,14 @@ import week4.utils.lits.input.PromptParams;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ComputerComponent extends Component {
 
-    @PromptParams(name = "MHZ CPU Speed", min = 1, max = 0, listType = ListType.INTEGER)
-    int megahertzCPUSpeed;
-    @PromptParams(name = "Communication Speed", min = 1, max = 0, listType = ListType.INTEGER)
-    double comunicationSpeed;
+    @PromptParams(name = "MHZ CPU Speed", min = 1, max = 999999, listType = ListType.INTEGER)
+    private int megahertzCPUSpeed;
+    @PromptParams(name = "Communication Speed", min = 1, max = 999999, listType = ListType.DOUBLE)
+    private double comunicationSpeed;
     @PromptParams(name = "Communication Speed Unit", min = 1, max = 20, listType = ListType.DEFAULT)
-    String comunicationSpeedUnit;
+    private String comunicationSpeedUnit;
     @PromptParams(name = "Manufacturer", min = 1, max = 300, listType = ListType.DEFAULT)
-    String manufacturer;
+    private String manufacturer;
 
     public ComputerComponent() {
 
@@ -41,11 +41,11 @@ public class ComputerComponent extends Component {
     public HashMap export() {
         HashMap exportMap = super.export();
         exportMap.put("object", this.getClass().toString());
-        exportMap.put("megahertzCPUSpeed", megahertzCPUSpeed);
-        exportMap.put("description", description);
-        exportMap.put("comunicationSpeed", comunicationSpeed);
-        exportMap.put("comunicationSpeedUnit", comunicationSpeedUnit);
-        exportMap.put("manufacturer", manufacturer);
+        exportMap.put("megahertzCPUSpeed", getMegahertzCPUSpeed());
+        exportMap.put("description", getDescription());
+        exportMap.put("comunicationSpeed", getComunicationSpeed());
+        exportMap.put("comunicationSpeedUnit", getComunicationSpeedUnit());
+        exportMap.put("manufacturer", getManufacturer());
         return exportMap;
     }
 
@@ -53,10 +53,52 @@ public class ComputerComponent extends Component {
     public void load(HashMap map) {
         super.load(map);
         megahertzCPUSpeed = (int) map.getOrDefault(megahertzCPUSpeed, 0);
-        comunicationSpeed = (double) map.getOrDefault(comunicationSpeed, 0d);
+        comunicationSpeed = (Double) map.getOrDefault(comunicationSpeed, 0d);
         comunicationSpeedUnit = (String) map.getOrDefault(comunicationSpeedUnit, "");
         manufacturer = (String) map.getOrDefault(manufacturer, "");
 
     }
+    
+    @Override
+    public String toString() {
+        return super.toString() + "   Megahertz CPU Speed: " + megahertzCPUSpeed
+                + "   Comunication Speed: " + comunicationSpeed
+                + "   Comunication Speed Unit: " + comunicationSpeedUnit
+                + "   Manufacturer: " + manufacturer;
+    }
+
+    public int getMegahertzCPUSpeed() {
+        return megahertzCPUSpeed;
+    }
+
+    public void setMegahertzCPUSpeed(int megahertzCPUSpeed) {
+        this.megahertzCPUSpeed = megahertzCPUSpeed;
+    }
+
+    public double getComunicationSpeed() {
+        return comunicationSpeed;
+    }
+
+    public void setComunicationSpeed(double comunicationSpeed) {
+        this.comunicationSpeed = comunicationSpeed;
+    }
+
+    public String getComunicationSpeedUnit() {
+        return comunicationSpeedUnit;
+    }
+
+    public void setComunicationSpeedUnit(String comunicationSpeedUnit) {
+        this.comunicationSpeedUnit = comunicationSpeedUnit;
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+    
+    
 
 }

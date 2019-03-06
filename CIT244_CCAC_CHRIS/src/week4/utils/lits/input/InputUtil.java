@@ -39,6 +39,50 @@ public class InputUtil {
         }
         return input;
     }
+    public static Double waitForDoubleInput(int min, int max, Double preset) {
+        Scanner inputScanner = new Scanner(System.in);
+
+        Double input = -1d;
+        while (input.compareTo(Double.valueOf(min)) < 0 || input.compareTo(Double.valueOf(max)) > 0) {
+            if (preset != 0) {
+                System.out.print("Type 0 to keep your previous entry (" + preset + "): ");
+            }
+            try {
+
+                input = inputScanner.nextDouble();
+                if (input == 0 && preset != 0) {
+                    return preset;
+                }
+            } catch (Exception e) {
+                System.out.println("Bad Input");
+                return input;
+            }
+        }
+        return input;
+    }
+    
+    public static boolean waitForBooleanInput(Boolean preset) {
+        Scanner inputScanner = new Scanner(System.in);
+
+        String input = "";
+        while (input.length() < 1 || input.length() > 1 && (!input.equals("T"))) {
+            if (preset != null) {
+                System.out.print("Type 0 to keep your previous entry (" + preset + "): ");
+            }
+            try {
+                input = inputScanner.next();
+                if (input.equals("0") && preset != null) {
+                    return preset;
+                }
+            } catch (Exception e) {
+                System.out.println("Bad Input. Try again.");
+            }
+            if (input.equalsIgnoreCase("T")||input.equalsIgnoreCase("TRUE")||input.equalsIgnoreCase("Y")||input.equalsIgnoreCase("YES")) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static String waitForStringInput(int min, int max, String preset) {
         Scanner inputScanner = new Scanner(System.in);
@@ -67,17 +111,12 @@ public class InputUtil {
         sdf.setTimeZone(TimeZone.getTimeZone(ZoneId.systemDefault()));
         SimpleDateFormat sdfyear = new SimpleDateFormat("yyyy");
         sdfyear.setTimeZone(TimeZone.getTimeZone(ZoneId.systemDefault()));
-        System.out.println("String value of Min:" + min);
         Date minDate = sdfyear.parse(String.valueOf(min));
         Date maxDate = sdfyear.parse(String.valueOf(max));
 
         Date date = sdfyear.parse("9999");
         String input = "";
-        System.out.println(minDate);
-        System.out.println(maxDate);
-
         while (date.compareTo(minDate) < 0 || date.compareTo(maxDate) > 0) {
-            System.out.println(date);
             if (preset != null) {
                 System.out.print("Type 0 to keep your previous entry (" + preset + "): ");
             }

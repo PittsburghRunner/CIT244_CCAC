@@ -9,6 +9,7 @@ import week4.utils.lits.input.Prompt;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import week4.utils.lits.input.PromptParams;
@@ -21,10 +22,12 @@ public class FieldHelpers {
 
     public static ArrayList<Prompt> retrieveClassFieldsForPrompting(Class c) {
         ArrayList<Prompt> prompts = new ArrayList<>();
+        int order = 1;
         while (c != Object.class) {
             Field[] fields = c.getDeclaredFields();
+            fieldLoop:
             for (Field field : fields) {
-                String prompt = "Annotation Not Found";
+                String prompt = "PromptParam Annotation Not Found For " + field.getName();
                 int min = 0;
                 int max = 0;
                 HashMap list = new HashMap<>();
@@ -33,14 +36,12 @@ public class FieldHelpers {
                 for (Annotation a : annotationLst) {
                     if (a instanceof PromptParams) {
                         PromptParams pp = (PromptParams) a;
-                        if(pp.hidden()==true){
-                            break;
+                        if(pp.hidden()){
+                            continue fieldLoop;
                         }
-                        System.out.println("pp min: " + pp.min());
                         min = pp.min();
                         max = pp.max();
                         listType = pp.listType();
-                        //System.out.println(pp.name());
                         prompt = pp.listType().prompt.replace("%name", pp.name());
                         HashMap<String, Object> replacements = splitStringToMap(pp.replacements());
                         replacements.put("min", pp.min());
@@ -50,14 +51,13 @@ public class FieldHelpers {
                     }
                 }
                 Prompt p;
-                System.out.println("printing min " + min);
-                p = new Prompt(prompt, field, min, max, list, listType);
-                //System.out.println(p.getField() + " - " + p.getPrompt());
+                p = new Prompt(order, prompt, field, min, max, list, listType);
                 prompts.add(p);
             }
             c = c.getSuperclass();
+            order++;
         }
-        System.out.println("Number of prompts: " + prompts.size());
+        Collections.sort(prompts);
         return prompts;
     }
 

@@ -5,35 +5,51 @@
  */
 package week4.timeline;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 import week4.timeline.components.Component;
+import week4.timeline.components.ComputerComponent;
+import week4.timeline.components.HumanInterestComponent;
 
 /**
  *
  * @author christopher.eckles
  */
-
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Timeline {
-    int startYear;
+
     String author;
     String Description;
+    @XmlElements({
+        @XmlElement(name = "Component", type = Component.class)
+        ,
+        @XmlElement(name = "ComputerComponent", type = ComputerComponent.class)
+        ,
+        @XmlElement(name = "HumanInterestComponent", type = HumanInterestComponent.class)
+
+    })
     ArrayList<Component> components = new ArrayList<>();
-    
-        public int generateYearSince(int currYear) {
-        return currYear - startYear;
+
+    public int generateYearSince(int currYear) {
+        return currYear - getStartYear();
     }
 
     public int getStartYear() {
-        return startYear;
-    }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+        int year = 0000;
+        Component oldest = getOldestComponent();
+        if (oldest != null && oldest.getDate() != null) {
+            year = Integer.valueOf(sdf.format(oldest.getDate()));
+        }
 
-    public void setStartYear(int startYear) {
-        this.startYear = startYear;
+        return year;
     }
 
     public String getAuthor() {
@@ -56,18 +72,30 @@ public class Timeline {
         return components;
     }
 
+    public Component getOldestComponent() {
+        sortTimeline();
+        if (!components.isEmpty()) {
+           return components.get(0);
+        }
+        return new Component();
+    }
+
+    public void sortTimeline() {
+        Collections.sort(getComponents());
+    }
+
     public void setComponents(ArrayList<Component> components) {
         this.components = components;
     }
-        
-    public void exportTimeline(){
-        for(Component component: components){
+
+    public void exportTimeline() {
+        for (Component component : components) {
             component.export();
         }
-    }    
-    
-    public void loadTimeline(){
-        
-      //  this.components.add(component);
-    }            
+    }
+
+    public void loadTimeline() {
+
+        //  this.components.add(component);
+    }
 }

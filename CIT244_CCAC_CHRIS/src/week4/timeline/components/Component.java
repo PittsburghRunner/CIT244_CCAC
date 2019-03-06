@@ -23,15 +23,15 @@ import week4.utils.lits.input.PromptParams;
 public class Component implements Portable, Comparable {
 
     @PromptParams(hidden=true)
-    String object;
-    @PromptParams(name="Date", min=1900, max=2022, listType=ListType.DATE)
-    Date date;
+    private String object;
+    @PromptParams(name="Created On", min=1900, max=2022, listType=ListType.DATE)
+    private Date createdOn;
     @PromptParams(name="Created By", min=4, max=300, listType=ListType.STRING_MIN_MAX)
-    String createdBy;
+    private String createdBy;
     @PromptParams(name="Description", min=4, max=300, listType=ListType.STRING_MIN_MAX)
-    String description;
+    private String description;
     @PromptParams(name="Reference Source URL", min=4, max=300, listType=ListType.STRING_MIN_MAX)
-    String referenceSourceUrl;
+    private String referenceSourceUrl;
 
     public Component() {
         object=this.getClass().toString();
@@ -39,7 +39,7 @@ public class Component implements Portable, Comparable {
 
     public Component(Date date, String description, String createdBy, String referenceSourceUrl) {
 
-        this.date=date;
+        this.createdOn=date;
         this.description=description;
         this.createdBy=createdBy;
         this.referenceSourceUrl=referenceSourceUrl;
@@ -53,7 +53,7 @@ public class Component implements Portable, Comparable {
     public HashMap export() {
         HashMap exportMap=new HashMap();
         exportMap.put("object", this.getClass().toString());
-        exportMap.put("date", date);
+        exportMap.put("date", createdOn);
         exportMap.put("createdBy", createdBy);
         exportMap.put("description", description);
         exportMap.put("referenceSourceUrl", referenceSourceUrl);
@@ -64,7 +64,7 @@ public class Component implements Portable, Comparable {
     @Override
     public void load(HashMap map) {
         object=(String) map.getOrDefault("object", this.getClass().toString());
-        date=(Date) map.getOrDefault("year", new Date());
+        createdOn=(Date) map.getOrDefault("year", new Date());
         createdBy=(String) map.getOrDefault("createdBy", "");
         description=(String) map.getOrDefault("description", "");
         referenceSourceUrl=(String) map.getOrDefault("referenceSourceUrl", "");
@@ -88,7 +88,7 @@ public class Component implements Portable, Comparable {
     @Override
     public String toString() {
         return "Object: " + object
-                + "   Date: " + date
+                + "   Date: " + createdOn
                 + "   Created By: " + createdBy
                 + "   Description By: " + description
                 + "   Url: " + referenceSourceUrl;
@@ -103,11 +103,11 @@ public class Component implements Portable, Comparable {
     }
 
     public Date getDate() {
-        return date;
+        return createdOn;
     }
 
     public void setDate(Date date) {
-        this.date=date;
+        this.createdOn=date;
     }
 
     public String getCreatedBy() {
