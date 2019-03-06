@@ -19,7 +19,7 @@ public enum ListType {
     INTEGER("Number","Enter a number: ", Integer.class),
     INTEGER_LIST_OF_VALUES("Number from a list of values","Choose a %name out of the list above: ",Integer.class),
     INTEGER_MIN_MAX("Number with a minimum and maximum","Enter a number between %min and %max for the %name: ",Integer.class),
-    BOOLEAN("Yes or No Answer","%name? \n 1 - Yes or 0 - No: ",Integer.class);
+    BOOLEAN("Yes or No Input","%name? \n 1 - Yes or 0 - No: ",Integer.class);
 
     String identifier;
     String prompt;
