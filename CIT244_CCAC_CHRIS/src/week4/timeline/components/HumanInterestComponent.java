@@ -53,6 +53,11 @@ public class HumanInterestComponent extends Component {
         super.load(map);
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + "   Is Interesting: " + isInteresting;
+  }
+    
     public boolean isIsInteresting() {
         return isInteresting;
     }

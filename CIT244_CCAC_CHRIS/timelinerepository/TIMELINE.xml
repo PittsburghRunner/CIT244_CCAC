@@ -2,6 +2,25 @@
 <timeline>
     <ComputerComponent>
         <object>class week4.timeline.components.ComputerComponent</object>
+        <createdOn>2013-03-06T00:00:00-05:00</createdOn>
+        <createdBy>Chris</createdBy>
+        <description>This</description>
+        <referenceSourceUrl>nope</referenceSourceUrl>
+        <megahertzCPUSpeed>900</megahertzCPUSpeed>
+        <comunicationSpeed>9600.0</comunicationSpeed>
+        <comunicationSpeedUnit>kbps</comunicationSpeedUnit>
+        <manufacturer>Apple</manufacturer>
+    </ComputerComponent>
+    <HumanInterestComponent>
+        <object>class week4.timeline.components.HumanInterestComponent</object>
+        <createdOn>2015-05-05T00:00:00-04:00</createdOn>
+        <createdBy>John</createdBy>
+        <description>Steve</description>
+        <referenceSourceUrl>apple.com</referenceSourceUrl>
+        <isInteresting>true</isInteresting>
+    </HumanInterestComponent>
+    <ComputerComponent>
+        <object>class week4.timeline.components.ComputerComponent</object>
         <createdOn>2018-01-01T00:00:00-05:00</createdOn>
         <createdBy>Chris</createdBy>
         <description>This</description>
