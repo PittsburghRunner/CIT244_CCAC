@@ -12,7 +12,6 @@ import java.lang.reflect.Method;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -130,25 +129,20 @@ public class TimelineWorld {
                 //create a new object based on annotation.
                 Class c = ComponentMenu.findById(selected).getComponentClass();
                 ArrayList<Prompt> prompts = FieldHelpers.retrieveClassFieldsForPrompting(c);
-//                for (Prompt p : prompts) {
-//                    System.out.println(p.getField().getName() +   " - min:" + p.getMin()
-//                            + " - max:" + p.getMax() + " - prompt:" + p.getPrompt());
-//                }
                 HashMap<String, Object> inputMap = new HashMap<>();
                 inputMap = promptForInputMap(prompts, inputMap);
                 Object o = c.newInstance();
-                if (o instanceof Component) {
-                    Component comp = (Component) o;
-                    comp.load(inputMap);
-                    timeline.components.add(comp);
-
-                } else if (o instanceof ComputerComponent) {
+                if (o instanceof ComputerComponent) {
                     ComputerComponent comp = (ComputerComponent) o;
                     comp.load(inputMap);
                     timeline.components.add(comp);
 
                 } else if (o instanceof HumanInterestComponent) {
                     HumanInterestComponent comp = (HumanInterestComponent) o;
+                    comp.load(inputMap);
+                    timeline.components.add(comp);
+                } else if (o instanceof Component) {
+                    Component comp = (Component) o;
                     comp.load(inputMap);
                     timeline.components.add(comp);
                 } else {
@@ -168,20 +162,14 @@ public class TimelineWorld {
             int selected = 0;
             System.out.println("\n\nEdit Component:\n");
             printComponents();
-            System.out.println(timelineSize +" -  Exit");
+            System.out.println(timelineSize + " -  Exit");
             selected = InputUtil.waitForIntInput(0, timelineSize, 0);
- 
+
             if (selected == timelineSize) {
                 exit = true;
             } else {
                 Component o = timeline.getComponents().get(selected);
-                if (o instanceof Component) {
-                    Component comp = (Component) o;
-                    ArrayList<Prompt> prompts = FieldHelpers.retrieveClassFieldsForPrompting(o.getClass());
-                    HashMap<String, Object> inputMap = comp.export();
-                    inputMap = promptForInputMap(prompts, inputMap);
-                    comp.load(inputMap);
-                } else if (o instanceof ComputerComponent) {
+                if (o instanceof ComputerComponent) {
                     ComputerComponent comp = (ComputerComponent) o;
                     ArrayList<Prompt> prompts = FieldHelpers.retrieveClassFieldsForPrompting(o.getClass());
                     HashMap<String, Object> inputMap = comp.export();
@@ -193,8 +181,90 @@ public class TimelineWorld {
                     HashMap<String, Object> inputMap = comp.export();
                     inputMap = promptForInputMap(prompts, inputMap);
                     comp.load(inputMap);
+                } else if (o instanceof Component) {
+                    Component comp = (Component) o;
+                    ArrayList<Prompt> prompts = FieldHelpers.retrieveClassFieldsForPrompting(o.getClass());
+                    HashMap<String, Object> inputMap = comp.export();
+                    inputMap = promptForInputMap(prompts, inputMap);
+                    comp.load(inputMap);
                 } else {
-                    System.out.println("Unable to edit object");
+                    System.out.println("Unable to edit component.");
+                }
+                printComponents();
+
+            }
+            //TODO: add sleep
+        }
+    }
+
+    private static void duplicateComponent() throws InstantiationException, IllegalAccessException, ParseException {
+        boolean exit = false;
+        while (!exit) {
+            int timelineSize = timeline.getComponents().size();
+            int selected = 0;
+            System.out.println("\n\nSelect a Component to duplicate:\n");
+            printComponents();
+            System.out.println(timelineSize + " -  Exit");
+            selected = InputUtil.waitForIntInput(0, timelineSize, 0);
+
+            if (selected == timelineSize) {
+                exit = true;
+            } else {
+                Component o = timeline.getComponents().get(selected);
+                if (o instanceof ComputerComponent) {
+                    ComputerComponent comp = new ComputerComponent(((ComputerComponent) o).export());
+                    ArrayList<Prompt> prompts = FieldHelpers.retrieveClassFieldsForPrompting(o.getClass());
+                    HashMap<String, Object> inputMap = comp.export();
+                    inputMap = promptForInputMap(prompts, inputMap);
+                    comp.load(inputMap);
+                    timeline.getComponents().add(comp);
+                } else if (o instanceof HumanInterestComponent) {
+                    HumanInterestComponent comp = new HumanInterestComponent(((HumanInterestComponent) o).export());
+                    ArrayList<Prompt> prompts = FieldHelpers.retrieveClassFieldsForPrompting(o.getClass());
+                    HashMap<String, Object> inputMap = comp.export();
+                    inputMap = promptForInputMap(prompts, inputMap);
+                    comp.load(inputMap);
+                    timeline.getComponents().add(comp);
+                } else if (o instanceof Component) {
+                    Component comp = new Component(((Component) o).export());
+                    ArrayList<Prompt> prompts = FieldHelpers.retrieveClassFieldsForPrompting(o.getClass());
+                    HashMap<String, Object> inputMap = comp.export();
+                    inputMap = promptForInputMap(prompts, inputMap);
+                    comp.load(inputMap);
+                    timeline.getComponents().add(comp);
+                } else {
+                    System.out.println("Unable to duplicate component.");
+                }
+                printComponents();
+
+            }
+            //TODO: add sleep
+        }
+    }
+
+    private static void deleteComponent() throws InstantiationException, IllegalAccessException, ParseException {
+        boolean exit = false;
+        while (!exit) {
+            int timelineSize = timeline.getComponents().size();
+            int selected = 0;
+            System.out.println("\n\nDelete Component:\n");
+            printComponents();
+            System.out.println(timelineSize + " -  Exit");
+            selected = InputUtil.waitForIntInput(0, timelineSize, 0);
+            if (selected == timelineSize) {
+                exit = true;
+            } else {
+                Component o = timeline.getComponents().get(selected);
+                if (o != null) {
+                    System.out.println("Are you sure you would like to delete this component: " + o.getDescription() + "?");
+                    Boolean confirm = InputUtil.waitForBooleanInput(null);
+                    if (confirm) {
+                        timeline.getComponents().remove(o);
+                    } else {
+                        System.out.println("Cancelled.");
+                    }
+                } else {
+                    System.out.println("Unable to delete component.");
                 }
                 printComponents();
 
@@ -235,7 +305,7 @@ public class TimelineWorld {
                 Double input = InputUtil.waitForDoubleInput(p.getMin(), p.getMax(), (Double) inputMap.getOrDefault(name, 0d));
                 inputMap.put(name, input);
             } else if (p.getListType().getClassType() == ListType.BOOLEAN.getClassType()) {
-                Boolean input = InputUtil.waitForBooleanInput((boolean) inputMap.get(name));
+                Boolean input = InputUtil.waitForBooleanInput((Boolean) inputMap.get(name));
                 inputMap.put(name, input);
             } else if (p.getListType().getClassType() == ListType.DATE.getClassType()) {
                 Date input = InputUtil.waitForDateInput(p.getMin(), p.getMax(), (Date) inputMap.get(name));

@@ -6,9 +6,50 @@
         <createdBy>Chris</createdBy>
         <description>This</description>
         <referenceSourceUrl>nope</referenceSourceUrl>
-        <megahertzCPUSpeed>0</megahertzCPUSpeed>
-        <comunicationSpeed>0.0</comunicationSpeed>
-        <comunicationSpeedUnit></comunicationSpeedUnit>
-        <manufacturer></manufacturer>
+        <megahertzCPUSpeed>400</megahertzCPUSpeed>
+        <comunicationSpeed>9600.0</comunicationSpeed>
+        <comunicationSpeedUnit>kbps</comunicationSpeedUnit>
+        <manufacturer>Manufacturer</manufacturer>
     </ComputerComponent>
+    <Component>
+        <object>class week4.timeline.components.Component</object>
+        <createdOn>2018-01-01T00:00:00-05:00</createdOn>
+        <createdBy>Chris</createdBy>
+        <description>This</description>
+        <referenceSourceUrl>nope</referenceSourceUrl>
+    </Component>
+    <Component>
+        <object>class week4.timeline.components.Component</object>
+        <createdOn>2018-01-01T00:00:00-05:00</createdOn>
+        <createdBy>Chris</createdBy>
+        <description>This</description>
+        <referenceSourceUrl>nope</referenceSourceUrl>
+    </Component>
+    <ComputerComponent>
+        <object>class week4.timeline.components.ComputerComponent</object>
+        <createdOn>2018-01-01T00:00:00-05:00</createdOn>
+        <createdBy>Chris</createdBy>
+        <description>This</description>
+        <referenceSourceUrl>nope</referenceSourceUrl>
+        <megahertzCPUSpeed>400</megahertzCPUSpeed>
+        <comunicationSpeed>9600.0</comunicationSpeed>
+        <comunicationSpeedUnit>kbps</comunicationSpeedUnit>
+        <manufacturer>Manufacturer</manufacturer>
+    </ComputerComponent>
+    <HumanInterestComponent>
+        <object>class week4.timeline.components.HumanInterestComponent</object>
+        <createdOn>2018-04-09T00:00:00-04:00</createdOn>
+        <createdBy>Christopher</createdBy>
+        <description>Steve</description>
+        <referenceSourceUrl>apple.com</referenceSourceUrl>
+        <isInteresting>true</isInteresting>
+    </HumanInterestComponent>
+    <HumanInterestComponent>
+        <object>class week4.timeline.components.HumanInterestComponent</object>
+        <createdOn>2018-04-09T00:00:00-04:00</createdOn>
+        <createdBy>Christopher</createdBy>
+        <description>Steve</description>
+        <referenceSourceUrl>apple.com</referenceSourceUrl>
+        <isInteresting>true</isInteresting>
+    </HumanInterestComponent>
 </timeline>

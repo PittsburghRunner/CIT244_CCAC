@@ -15,11 +15,13 @@ public enum MenuItem {
 
     PRINT_COMPONENTS(1, "Print Components", "week4.timeline.TimelineWorld", "printComponents"),
     ADD_COMPONENT(2, "Add a new timeline Component", "week4.timeline.TimelineWorld", "addComponent"),
-    EDIT_COMPONENT(3, "Edit an existing timeline Component", "week4.timeline.TimelineWorld", "editComponent"),
-    SAVE_TIMELINE(4, "Save timeline to file.", "week4.timeline.TimelineWorld", "saveTimeline"),
-    SORT_TIMELINE(5, "Sort timeline", "week4.timeline.TimelineWorld", "sort"),
-    DONT_SAVE_ON_EXIT(6, "Don't save on exit", "week4.timeline.TimelineWorld", "setSaveOnExitToFalse"),
-    EXIT(7, "Exit Application", "week4.timeline.TimelineWorld", "setSaveOnExitToFalse");
+    DUPLICATE_COMPONENT(3, "Duplicate an existing timeline Component", "week4.timeline.TimelineWorld", "duplicateComponent"),
+    EDIT_COMPONENT(4, "Edit an existing timeline Component", "week4.timeline.TimelineWorld", "editComponent"),
+    DELETE_COMPONENT(5, "Delete a timeline Component", "week4.timeline.TimelineWorld", "deleteComponent"),
+    SAVE_TIMELINE(6, "Save timeline to file.", "week4.timeline.TimelineWorld", "saveTimeline"),
+    SORT_TIMELINE(7, "Sort timeline", "week4.timeline.TimelineWorld", "sort"),
+    DONT_SAVE_ON_EXIT(8, "Don't save on exit", "week4.timeline.TimelineWorld", "setSaveOnExitToFalse"),
+    EXIT(9, "Exit Application", "week4.timeline.TimelineWorld", "setSaveOnExitToFalse");
 
     int menuItemid;
     String menuItemDescription;
