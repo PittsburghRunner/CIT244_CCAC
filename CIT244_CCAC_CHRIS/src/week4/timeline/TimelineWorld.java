@@ -85,8 +85,8 @@ public class TimelineWorld {
     }
 
     public static void printComponents() {
-        for (Component component : timeline.getComponents()) {
-            System.out.println(component.toString());
+        for (int i = 0; i < timeline.getComponents().size(); i++) {
+            System.out.println(i + " - " + timeline.getComponents().get(i).toString());
         }
 
     }
@@ -161,6 +161,48 @@ public class TimelineWorld {
         }
     }
 
+    private static void editComponent() throws InstantiationException, IllegalAccessException, ParseException {
+        boolean exit = false;
+        while (!exit) {
+            int timelineSize = timeline.getComponents().size();
+            int selected = 0;
+            System.out.println("\n\nEdit Component:\n");
+            printComponents();
+            System.out.println(timelineSize +" -  Exit");
+            selected = InputUtil.waitForIntInput(0, timelineSize, 0);
+ 
+            if (selected == timelineSize) {
+                exit = true;
+            } else {
+                Component o = timeline.getComponents().get(selected);
+                if (o instanceof Component) {
+                    Component comp = (Component) o;
+                    ArrayList<Prompt> prompts = FieldHelpers.retrieveClassFieldsForPrompting(o.getClass());
+                    HashMap<String, Object> inputMap = comp.export();
+                    inputMap = promptForInputMap(prompts, inputMap);
+                    comp.load(inputMap);
+                } else if (o instanceof ComputerComponent) {
+                    ComputerComponent comp = (ComputerComponent) o;
+                    ArrayList<Prompt> prompts = FieldHelpers.retrieveClassFieldsForPrompting(o.getClass());
+                    HashMap<String, Object> inputMap = comp.export();
+                    inputMap = promptForInputMap(prompts, inputMap);
+                    comp.load(inputMap);
+                } else if (o instanceof HumanInterestComponent) {
+                    HumanInterestComponent comp = (HumanInterestComponent) o;
+                    ArrayList<Prompt> prompts = FieldHelpers.retrieveClassFieldsForPrompting(o.getClass());
+                    HashMap<String, Object> inputMap = comp.export();
+                    inputMap = promptForInputMap(prompts, inputMap);
+                    comp.load(inputMap);
+                } else {
+                    System.out.println("Unable to edit object");
+                }
+                printComponents();
+
+            }
+            //TODO: add sleep
+        }
+    }
+
     private static void invokeMethod(String methodClass, String methodToInvoke) {
 
         Class<?> c;
@@ -177,7 +219,7 @@ public class TimelineWorld {
     public static HashMap<String, Object> promptForInputMap(ArrayList<Prompt> prompts, HashMap<String, Object> inputMap) throws ParseException {
         for (Prompt p : prompts) {
             String name = p.getField().getName();
-            
+
             //print the list of values
             for (Entry me : p.getList().entrySet()) {
                 System.out.println(me.getKey() + " - " + me.getValue());
@@ -187,10 +229,10 @@ public class TimelineWorld {
                 String input = InputUtil.waitForStringInput(p.getMin(), p.getMax(), (String) inputMap.get(name));
                 inputMap.put(name, input);
             } else if (p.getListType().getClassType() == ListType.INTEGER.getClassType()) {
-                int input = InputUtil.waitForIntInput(p.getMin(), p.getMax(), (int) inputMap.getOrDefault(name,0));
+                int input = InputUtil.waitForIntInput(p.getMin(), p.getMax(), (int) inputMap.getOrDefault(name, 0));
                 inputMap.put(name, input);
             } else if (p.getListType().getClassType() == ListType.DOUBLE.getClassType()) {
-                Double input = InputUtil.waitForDoubleInput(p.getMin(), p.getMax(), (Double) inputMap.getOrDefault(name,0d));
+                Double input = InputUtil.waitForDoubleInput(p.getMin(), p.getMax(), (Double) inputMap.getOrDefault(name, 0d));
                 inputMap.put(name, input);
             } else if (p.getListType().getClassType() == ListType.BOOLEAN.getClassType()) {
                 Boolean input = InputUtil.waitForBooleanInput((boolean) inputMap.get(name));
@@ -204,7 +246,7 @@ public class TimelineWorld {
     }
 
     public static void sort() {
-            timeline.sortTimeline();
+        timeline.sortTimeline();
     }
 
     public static void setSaveOnExitToFalse() {

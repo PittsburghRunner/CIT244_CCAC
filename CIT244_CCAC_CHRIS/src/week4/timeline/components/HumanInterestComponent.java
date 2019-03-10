@@ -49,7 +49,7 @@ public class HumanInterestComponent extends Component {
 
     @Override
     public void load(HashMap map) {
-        isInteresting = (Boolean) map.getOrDefault("isInteresting",true);
+        isInteresting = (Boolean) map.get("isInteresting");
         super.load(map);
     }
 

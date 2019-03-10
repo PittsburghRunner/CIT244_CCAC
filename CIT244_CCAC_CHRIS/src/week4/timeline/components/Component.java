@@ -53,7 +53,7 @@ public class Component implements Portable, Comparable {
     public HashMap export() {
         HashMap exportMap=new HashMap();
         exportMap.put("object", this.getClass().toString());
-        exportMap.put("date", createdOn);
+        exportMap.put("createdOn", createdOn);
         exportMap.put("createdBy", createdBy);
         exportMap.put("description", description);
         exportMap.put("referenceSourceUrl", referenceSourceUrl);
@@ -64,10 +64,10 @@ public class Component implements Portable, Comparable {
     @Override
     public void load(HashMap map) {
         object=(String) map.getOrDefault("object", this.getClass().toString());
-        createdOn=(Date) map.getOrDefault("year", new Date());
-        createdBy=(String) map.getOrDefault("createdBy", "");
-        description=(String) map.getOrDefault("description", "");
-        referenceSourceUrl=(String) map.getOrDefault("referenceSourceUrl", "");
+        createdOn=(Date) map.get("createdOn");
+        createdBy=(String) map.get("createdBy");
+        description=(String) map.get("description");
+        referenceSourceUrl=(String) map.get("referenceSourceUrl");
     }
 
     @Override
