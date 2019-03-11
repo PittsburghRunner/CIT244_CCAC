@@ -61,7 +61,6 @@ public class TimelineWorld {
         } else {
             System.out.println("Exited without Saving");
         }
-        printComponents();
     }
 
     private static void defaultData(Timeline timeline) {

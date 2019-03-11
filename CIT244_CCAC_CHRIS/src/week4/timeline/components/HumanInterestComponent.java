@@ -21,7 +21,7 @@ import week4.utils.lits.input.PromptParams;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class HumanInterestComponent extends Component {
 
-    @PromptParams(name = "Is this really interesting", min = 1, max = 1, listType = ListType.BOOLEAN)
+    @PromptParams(name = "Is this really interesting", min = 1, max = 3, listType = ListType.BOOLEAN)
     Boolean isInteresting;
 
     

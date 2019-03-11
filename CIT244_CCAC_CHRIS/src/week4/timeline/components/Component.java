@@ -5,6 +5,7 @@
  */
 package week4.timeline.components;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import week4.timeline.components.interfaces.Portable;
 import java.util.HashMap;
@@ -28,10 +29,14 @@ public class Component implements Portable, Comparable {
     private Date createdOn;
     @PromptParams(name="Created By", min=4, max=300, listType=ListType.STRING_MIN_MAX)
     private String createdBy;
-    @PromptParams(name="Description", min=4, max=300, listType=ListType.STRING_MIN_MAX)
+    @PromptParams(name="Title", min=4, max=300, listType=ListType.STRING_MIN_MAX)
+    private String title;
+    @PromptParams(name="Description", min=4, max=3000, listType=ListType.STRING_MIN_MAX)
     private String description;
     @PromptParams(name="Reference Source URL", min=4, max=300, listType=ListType.STRING_MIN_MAX)
     private String referenceSourceUrl;
+    @PromptParams(name="Image URL", min=4, max=300, listType=ListType.STRING_MIN_MAX)
+    private String imageUrl;
 
     public Component() {
         object=this.getClass().toString();
@@ -87,10 +92,11 @@ public class Component implements Portable, Comparable {
 
     @Override
     public String toString() {
-        return "Object: " + object
-                + "   Date: " + createdOn
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        return  sdf.format(createdOn)  + " - Title: " + title
+                + " (" + object
                 + "   Created By: " + createdBy
-                + "   Description By: " + description
                 + "   Url: " + referenceSourceUrl;
     }
 
@@ -118,6 +124,24 @@ public class Component implements Portable, Comparable {
         this.createdBy=createdBy;
     }
 
+    public Date getCreatedOn() {
+        return createdOn;
+    }
+
+    public void setCreatedOn(Date createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    
+    
     public String getDescription() {
         return description;
     }
