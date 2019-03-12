@@ -52,8 +52,8 @@ public class ComputerComponent extends Component {
     @Override
     public void load(HashMap map) {
         super.load(map);
-        megahertzCPUSpeed = (int) map.get("megahertzCPUSpeed");
-        comunicationSpeed = (Double) map.get("comunicationSpeed");
+        megahertzCPUSpeed = (int) map.getOrDefault("megahertzCPUSpeed",0);
+        comunicationSpeed = (Double) map.getOrDefault("comunicationSpeed",0d);
         comunicationSpeedUnit = (String) map.get("comunicationSpeedUnit");
         manufacturer = (String) map.get("manufacturer");
 

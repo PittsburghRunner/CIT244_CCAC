@@ -14,8 +14,7 @@ import week4.timeline.Properties;
  */
 public enum MenuItem {
     
-    
-    PRINT_COMPONENTS(1, "components.print", "week4.timeline.TimelineWorld", "printComponents"),
+    LIST_COMPONENTS(1, "components.list", "week4.timeline.TimelineWorld", "printComponents"),
     ADD_COMPONENT(2, "component.add", "week4.timeline.TimelineWorld", "addComponent"),
     DUPLICATE_COMPONENT(3, "component.duplicate", "week4.timeline.TimelineWorld", "duplicateComponent"),
     EDIT_COMPONENT(4, "component.edit", "week4.timeline.TimelineWorld", "editComponent"),
@@ -23,8 +22,9 @@ public enum MenuItem {
     SAVE_TIMELINE(6, "timeline.save", "week4.timeline.TimelineWorld", "saveTimeline"),
     SORT_TIMELINE(7, "timeline.sort", "week4.timeline.TimelineWorld", "sort"),
     DONT_SAVE_ON_EXIT(8, "no.save.on.exit", "week4.timeline.TimelineWorld", "setSaveOnExitToFalse"),
-    EXIT(9, "application.exit", "week4.timeline.TimelineWorld", "setSaveOnExitToFalse");
-    
+    EXIT(9, "application.exit", "week4.timeline.TimelineWorld", "setSaveOnExitToFalse"),
+    CHANGE_LANGUAGE(10, "change.language", "week4.timeline.TimelineWorld", "changeLanguage");
+   
     
         
 //    PRINT_COMPONENTS(1, "Print Components", "week4.timeline.TimelineWorld", "printComponents"),
@@ -42,9 +42,6 @@ public enum MenuItem {
     String menuItemDescription;
     String methodClass;
     String methodToCall;
-    
-    private static Properties labels = new Properties("week4.timeline.labels");
-
 
     MenuItem(int id, String descr, String mclass, String method) {
         menuItemid = id;
@@ -71,7 +68,7 @@ public enum MenuItem {
 
     @Override
     public String toString() {
-        return menuItemid + " - " + labels.getString(menuItemDescription);
+        return menuItemid + " - " + Properties.getLabel(menuItemDescription);
     }
 
     public static void printEntireMenu() {
