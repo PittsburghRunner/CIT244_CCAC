@@ -87,6 +87,23 @@
         <referenceSourceUrl>apple.com</referenceSourceUrl>
         <isInteresting>true</isInteresting>
     </HumanInterestComponent>
+    <ComputerComponent>
+        <createdOn>2009-05-06T00:00:00-04:00</createdOn>
+        <createdBy>Apple</createdBy>
+        <title>iPhone</title>
+        <description>iPhone</description>
+        <referenceSourceUrl>http://www.apple.com/iPhone</referenceSourceUrl>
+        <megahertzCPUSpeed>0</megahertzCPUSpeed>
+        <comunicationSpeed>0.0</comunicationSpeed>
+    </ComputerComponent>
+    <HumanInterestComponent>
+        <object>class week4.timeline.components.ComputerComponent</object>
+        <createdOn>2013-02-09T00:00:00-05:00</createdOn>
+        <createdBy>Microsoft</createdBy>
+        <title>Surface Pro</title>
+        <description>Surface Pro</description>
+        <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
+    </HumanInterestComponent>
     <Component>
         <object>class week4.timeline.components.Component</object>
         <createdOn>2014-05-09T00:00:00-04:00</createdOn>
