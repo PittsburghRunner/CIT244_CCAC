@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <timeline>
+    <HumanInterestComponent>
+        <object>class week4.timeline.components.HumanInterestComponent</object>
+        <createdOn>2000-01-01T00:00:00-05:00</createdOn>
+        <createdBy>Hystaria</createdBy>
+        <title>Test</title>
+        <description>Test</description>
+        <referenceSourceUrl>dotcombubble</referenceSourceUrl>
+        <isInteresting>true</isInteresting>
+    </HumanInterestComponent>
     <ComputerComponent>
         <object>class week4.timeline.components.ComputerComponent</object>
         <createdOn>2013-03-06T00:00:00-05:00</createdOn>
         <createdBy>Chris</createdBy>
+        <title>This is a title</title>
         <description>This</description>
         <referenceSourceUrl>nope</referenceSourceUrl>
         <megahertzCPUSpeed>900</megahertzCPUSpeed>
@@ -15,6 +25,7 @@
         <object>class week4.timeline.components.HumanInterestComponent</object>
         <createdOn>2015-05-05T00:00:00-04:00</createdOn>
         <createdBy>John</createdBy>
+        <title>Steve Jobs</title>
         <description>Steve</description>
         <referenceSourceUrl>apple.com</referenceSourceUrl>
         <isInteresting>true</isInteresting>
@@ -23,6 +34,7 @@
         <object>class week4.timeline.components.ComputerComponent</object>
         <createdOn>2018-01-01T00:00:00-05:00</createdOn>
         <createdBy>Chris</createdBy>
+        <title>Test</title>
         <description>This</description>
         <referenceSourceUrl>nope</referenceSourceUrl>
         <megahertzCPUSpeed>400</megahertzCPUSpeed>
@@ -41,6 +53,7 @@
         <object>class week4.timeline.components.Component</object>
         <createdOn>2018-01-01T00:00:00-05:00</createdOn>
         <createdBy>Chris</createdBy>
+        <title>Test</title>
         <description>This</description>
         <referenceSourceUrl>nope</referenceSourceUrl>
     </Component>
@@ -48,6 +61,7 @@
         <object>class week4.timeline.components.ComputerComponent</object>
         <createdOn>2018-01-01T00:00:00-05:00</createdOn>
         <createdBy>Chris</createdBy>
+        <title>Test</title>
         <description>This</description>
         <referenceSourceUrl>nope</referenceSourceUrl>
         <megahertzCPUSpeed>400</megahertzCPUSpeed>
@@ -59,6 +73,7 @@
         <object>class week4.timeline.components.HumanInterestComponent</object>
         <createdOn>2018-04-09T00:00:00-04:00</createdOn>
         <createdBy>Christopher</createdBy>
+        <title>Test</title>
         <description>Steve</description>
         <referenceSourceUrl>apple.com</referenceSourceUrl>
         <isInteresting>true</isInteresting>
@@ -67,8 +82,16 @@
         <object>class week4.timeline.components.HumanInterestComponent</object>
         <createdOn>2018-04-09T00:00:00-04:00</createdOn>
         <createdBy>Christopher</createdBy>
+        <title>Test</title>
         <description>Steve</description>
         <referenceSourceUrl>apple.com</referenceSourceUrl>
         <isInteresting>true</isInteresting>
     </HumanInterestComponent>
+    <Component>
+        <object>class week4.timeline.components.Component</object>
+        <createdOn>2014-05-09T00:00:00-04:00</createdOn>
+        <createdBy>John</createdBy>
+        <description>This</description>
+        <referenceSourceUrl>yrdy</referenceSourceUrl>
+    </Component>
 </timeline>
