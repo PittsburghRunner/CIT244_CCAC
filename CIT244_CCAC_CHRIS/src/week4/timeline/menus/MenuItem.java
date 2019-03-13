@@ -22,8 +22,10 @@ public enum MenuItem {
     SAVE_TIMELINE(6, "timeline.save", "week4.timeline.TimelineWorld", "saveTimeline"),
     SORT_TIMELINE(7, "timeline.sort", "week4.timeline.TimelineWorld", "sort"),
     DONT_SAVE_ON_EXIT(8, "no.save.on.exit", "week4.timeline.TimelineWorld", "setSaveOnExitToFalse"),
-    EXIT(9, "application.exit", "week4.timeline.TimelineWorld", "setSaveOnExitToFalse"),
-    CHANGE_LANGUAGE(10, "change.language", "week4.timeline.TimelineWorld", "changeLanguage");
+    PRINT_WIREFRAME(9, "wireframe", "week4.timeline.TimelineWorld", "printWireframe"),
+    CHANGE_LANGUAGE(10, "change.language", "week4.timeline.TimelineWorld", "changeLanguage"),
+    EXIT(11, "application.exit", "week4.timeline.TimelineWorld", "setSaveOnExitToFalse");
+
    
     
         

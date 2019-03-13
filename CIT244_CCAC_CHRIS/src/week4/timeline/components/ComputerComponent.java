@@ -66,6 +66,14 @@ public class ComputerComponent extends Component {
                 + "   Comunication Speed Unit: " + comunicationSpeedUnit
                 + "   Manufacturer: " + manufacturer;
     }
+    
+        @Override
+    public String toWireframe() {
+        return super.toWireframe() + "," + megahertzCPUSpeed
+                + "," + comunicationSpeed
+                + "," + comunicationSpeedUnit
+                + "," + manufacturer;
+    }
 
     public int getMegahertzCPUSpeed() {
         return megahertzCPUSpeed;

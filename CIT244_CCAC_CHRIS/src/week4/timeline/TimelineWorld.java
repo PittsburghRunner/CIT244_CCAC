@@ -93,6 +93,15 @@ public class TimelineWorld {
         }
 
     }
+    
+        public static void printWireframe() {
+            System.out.println("[] / 100px,Created On/200px,Title,Created By,Refrence Source URL");
+        for (int i = 0; i < timeline.getComponents().size(); i++) {
+            System.out.println(timeline.getComponents().get(i).toWireframe());
+        }
+
+    }
+    
 
     private static void mainMenu() {
         boolean exit = false;

@@ -103,6 +103,15 @@ public class Component implements Portable, Comparable {
                 + "   Created By: " + createdBy
                 + "   Url: " + referenceSourceUrl;
     }
+    
+    public String toWireframe() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        return  "[],"+sdf.format(createdOn)  
+                + "," + title
+                + "," + createdBy
+                + "," + referenceSourceUrl;
+    }    
 
     public String getObject() {
         return object;
