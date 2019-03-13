@@ -6,6 +6,7 @@
 package week4.timeline.menus;
 
 import java.util.Arrays;
+import week4.timeline.Properties;
 import week4.timeline.TimelineWorld;
 import week4.timeline.components.Component;
 import week4.timeline.components.ComputerComponent;
@@ -17,10 +18,10 @@ import week4.timeline.components.HumanInterestComponent;
  */
 public enum ComponentMenu {
 
-    COMPONENT(1, "General Component", Component.class),
-    COMPUTER_COMPONENT(2, "Computer Component", ComputerComponent.class),
-    HUMAN_INTEREST_COMPONENT(3, "Human Interest Component", HumanInterestComponent.class),
-    EXIT(4, "Exit Component Menu", TimelineWorld.class);
+    COMPONENT(1, "component.general", Component.class),
+    COMPUTER_COMPONENT(2, "component.computer", ComputerComponent.class),
+    HUMAN_INTEREST_COMPONENT(3, "component.human.interest", HumanInterestComponent.class),
+    EXIT(4, "component.menu.exit", TimelineWorld.class);
     
 
     int menuItemid;
@@ -48,7 +49,7 @@ public enum ComponentMenu {
 
     @Override
     public String toString() {
-        return menuItemid + " - " + menuItemDescription;
+        return menuItemid + " - " + Properties.getLabel(menuItemDescription);
     }
 
     public static void printEntireMenu() {

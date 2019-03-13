@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,6 +26,7 @@ import week4.timeline.components.Component;
 import week4.timeline.components.ComputerComponent;
 import week4.timeline.components.HumanInterestComponent;
 import week4.timeline.menus.ComponentMenu;
+import week4.timeline.menus.LanguageMenu;
 import week4.utils.lits.FieldHelpers;
 import week4.utils.lits.ListType;
 import week4.utils.lits.input.Prompt;
@@ -37,9 +39,9 @@ public class TimelineWorld {
 
     private static Timeline timeline = new Timeline();
     private static boolean saveOnExit = true;
-    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-dd-7MM");
+    private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-dd-MM");
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
         //try loading the file
         try {
@@ -63,18 +65,21 @@ public class TimelineWorld {
         }
     }
 
-    private static void defaultData(Timeline timeline) {
+    private static void defaultData(Timeline timeline) throws ParseException {
         HashMap ccMap = new HashMap();
-        ccMap.put("date", sdf.format("2007-06-29"));
+        ccMap.put("object", ComputerComponent.class.toString());
+        ccMap.put("createdOn", sdf.parse("2007-06-29"));
         ccMap.put("createdBy", "Apple");
+        ccMap.put("title", "iPhone");
         ccMap.put("description", "iPhone");
         ccMap.put("referenceSourceUrl", "http://www.apple.com/iPhone");
         ComputerComponent cc = new ComputerComponent(ccMap);
         timeline.getComponents().add(cc);
-
         HashMap<String, Object> hicMap = new HashMap();
-        hicMap.put("date", sdf.format("2013-09-02"));
+        hicMap.put("object", ComputerComponent.class.toString());
+        hicMap.put("createdOn", sdf.parse("2013-09-02"));
         hicMap.put("createdBy", "Microsoft");
+        hicMap.put("title", "Surface Pro");
         hicMap.put("description", "Surface Pro");
         hicMap.put("referenceSourceUrl", "https://en.wikipedia.org/wiki/Surface_Pro");
         HumanInterestComponent hic = new HumanInterestComponent(hicMap);
@@ -88,6 +93,15 @@ public class TimelineWorld {
         }
 
     }
+    
+        public static void printWireframe() {
+            System.out.println("[] / 100px,Created On/200px,Title,Created By,Refrence Source URL");
+        for (int i = 0; i < timeline.getComponents().size(); i++) {
+            System.out.println(timeline.getComponents().get(i).toWireframe());
+        }
+
+    }
+    
 
     private static void mainMenu() {
         boolean exit = false;
@@ -238,6 +252,22 @@ public class TimelineWorld {
 
             }
             //TODO: add sleep
+        }
+    }
+
+    private static void changeLanguage() {
+        int selected = 0;
+        boolean exit = false;
+        while (!exit) {
+            LanguageMenu.printEntireMenu();
+            selected = InputUtil.waitForIntInput(1, LanguageMenu.values().length, 0);
+            if (selected != LanguageMenu.EXIT.getMenuItemid()) {
+                Locale.setDefault(LanguageMenu.findById(selected).getLocale());
+                System.out.println("Local set to " + Locale.getDefault().getDisplayName());
+                Properties.refreshLabelsBundle();
+            }
+            exit = true;
+
         }
     }
 

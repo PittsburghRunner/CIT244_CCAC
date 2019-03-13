@@ -60,6 +60,7 @@ public class Component implements Portable, Comparable {
         exportMap.put("object", this.getClass().toString());
         exportMap.put("createdOn", createdOn);
         exportMap.put("createdBy", createdBy);
+        exportMap.put("title", title);
         exportMap.put("description", description);
         exportMap.put("referenceSourceUrl", referenceSourceUrl);
 
@@ -71,6 +72,7 @@ public class Component implements Portable, Comparable {
         object=(String) map.getOrDefault("object", this.getClass().toString());
         createdOn=(Date) map.get("createdOn");
         createdBy=(String) map.get("createdBy");
+        title=(String) map.get("title");
         description=(String) map.get("description");
         referenceSourceUrl=(String) map.get("referenceSourceUrl");
     }
@@ -81,6 +83,8 @@ public class Component implements Portable, Comparable {
             Component t=(Component) o;
             if (this.getDate().compareTo(t.getDate()) != 0) {
                 return this.getDate().compareTo(t.getDate());
+            } else if (this.getTitle().compareTo(t.getTitle()) != 0) {
+                return this.getTitle().compareTo(t.getTitle());
             } else if (this.getDescription().compareTo(t.getDescription()) != 0) {
                 return this.getDescription().compareTo(t.getDescription());
             } else {
@@ -99,6 +103,15 @@ public class Component implements Portable, Comparable {
                 + "   Created By: " + createdBy
                 + "   Url: " + referenceSourceUrl;
     }
+    
+    public String toWireframe() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        return  "[],"+sdf.format(createdOn)  
+                + "," + title
+                + "," + createdBy
+                + "," + referenceSourceUrl;
+    }    
 
     public String getObject() {
         return object;
@@ -139,8 +152,6 @@ public class Component implements Portable, Comparable {
     public void setTitle(String title) {
         this.title = title;
     }
-
-    
     
     public String getDescription() {
         return description;
