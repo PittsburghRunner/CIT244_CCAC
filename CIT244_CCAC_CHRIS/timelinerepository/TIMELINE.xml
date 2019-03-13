@@ -11,81 +11,21 @@
     </HumanInterestComponent>
     <ComputerComponent>
         <object>class week4.timeline.components.ComputerComponent</object>
-        <createdOn>2013-03-06T00:00:00-05:00</createdOn>
-        <createdBy>Chris</createdBy>
-        <title>This is a title</title>
-        <description>This</description>
-        <referenceSourceUrl>nope</referenceSourceUrl>
-        <megahertzCPUSpeed>900</megahertzCPUSpeed>
-        <comunicationSpeed>9600.0</comunicationSpeed>
-        <comunicationSpeedUnit>kbps</comunicationSpeedUnit>
-        <manufacturer>Apple</manufacturer>
+        <createdOn>2009-05-06T00:00:00-04:00</createdOn>
+        <createdBy>Apple</createdBy>
+        <title>iPhone</title>
+        <description>iPhone</description>
+        <referenceSourceUrl>http://www.apple.com/iPhone</referenceSourceUrl>
+        <megahertzCPUSpeed>0</megahertzCPUSpeed>
+        <comunicationSpeed>0.0</comunicationSpeed>
     </ComputerComponent>
     <HumanInterestComponent>
-        <object>class week4.timeline.components.HumanInterestComponent</object>
-        <createdOn>2015-05-05T00:00:00-04:00</createdOn>
-        <createdBy>John</createdBy>
-        <title>Steve Jobs</title>
-        <description>Steve</description>
-        <referenceSourceUrl>apple.com</referenceSourceUrl>
-        <isInteresting>true</isInteresting>
-    </HumanInterestComponent>
-    <ComputerComponent>
         <object>class week4.timeline.components.ComputerComponent</object>
-        <createdOn>2018-01-01T00:00:00-05:00</createdOn>
-        <createdBy>Chris</createdBy>
-        <title>Test</title>
-        <description>This</description>
-        <referenceSourceUrl>nope</referenceSourceUrl>
-        <megahertzCPUSpeed>400</megahertzCPUSpeed>
-        <comunicationSpeed>9600.0</comunicationSpeed>
-        <comunicationSpeedUnit>kbps</comunicationSpeedUnit>
-        <manufacturer>Manufacturer</manufacturer>
-    </ComputerComponent>
-    <Component>
-        <object>class week4.timeline.components.Component</object>
-        <createdOn>2018-01-01T00:00:00-05:00</createdOn>
-        <createdBy>Chris</createdBy>
-        <description>This</description>
-        <referenceSourceUrl>nope</referenceSourceUrl>
-    </Component>
-    <Component>
-        <object>class week4.timeline.components.Component</object>
-        <createdOn>2018-01-01T00:00:00-05:00</createdOn>
-        <createdBy>Chris</createdBy>
-        <title>Test</title>
-        <description>This</description>
-        <referenceSourceUrl>nope</referenceSourceUrl>
-    </Component>
-    <ComputerComponent>
-        <object>class week4.timeline.components.ComputerComponent</object>
-        <createdOn>2018-01-01T00:00:00-05:00</createdOn>
-        <createdBy>Chris</createdBy>
-        <title>Test</title>
-        <description>This</description>
-        <referenceSourceUrl>nope</referenceSourceUrl>
-        <megahertzCPUSpeed>400</megahertzCPUSpeed>
-        <comunicationSpeed>9600.0</comunicationSpeed>
-        <comunicationSpeedUnit>kbps</comunicationSpeedUnit>
-        <manufacturer>Manufacturer</manufacturer>
-    </ComputerComponent>
-    <HumanInterestComponent>
-        <object>class week4.timeline.components.HumanInterestComponent</object>
-        <createdOn>2018-04-09T00:00:00-04:00</createdOn>
-        <createdBy>Christopher</createdBy>
-        <title>Test</title>
-        <description>Steve</description>
-        <referenceSourceUrl>apple.com</referenceSourceUrl>
-        <isInteresting>true</isInteresting>
-    </HumanInterestComponent>
-    <HumanInterestComponent>
-        <object>class week4.timeline.components.HumanInterestComponent</object>
-        <createdOn>2018-04-09T00:00:00-04:00</createdOn>
-        <createdBy>Christopher</createdBy>
-        <title>Test</title>
-        <description>Steve</description>
-        <referenceSourceUrl>apple.com</referenceSourceUrl>
-        <isInteresting>true</isInteresting>
+        <createdOn>2013-02-09T00:00:00-05:00</createdOn>
+        <createdBy>Microsoft</createdBy>
+        <title>Surface Pro</title>
+        <description>Surface Pro</description>
+        <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
     </HumanInterestComponent>
     <ComputerComponent>
         <createdOn>2009-05-06T00:00:00-04:00</createdOn>
