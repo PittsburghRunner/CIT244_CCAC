@@ -13,7 +13,7 @@ import week4.timeline.Properties;
  * @author ceckles
  */
 public enum MenuItem {
-    
+    START_GUI(0, "gui.start", "week4.timeline.TimelineWorld", "startGUI"),
     LIST_COMPONENTS(1, "components.list", "week4.timeline.TimelineWorld", "printComponents"),
     ADD_COMPONENT(2, "component.add", "week4.timeline.TimelineWorld", "addComponent"),
     DUPLICATE_COMPONENT(3, "component.duplicate", "week4.timeline.TimelineWorld", "duplicateComponent"),
