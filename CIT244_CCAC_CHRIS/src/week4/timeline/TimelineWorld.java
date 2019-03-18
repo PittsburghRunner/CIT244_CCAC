@@ -109,7 +109,7 @@ public class TimelineWorld {
             int selected = 0;
             System.out.println("\n\nMain Menu:\n");
             MenuItem.printEntireMenu();
-            selected = InputUtil.waitForIntInput(1, MenuItem.values().length, 0);
+            selected = InputUtil.waitForIntInput(0, MenuItem.values().length, 0);
             MenuItem mi = MenuItem.findById(selected);
             if (mi == null) {
                 break;
@@ -347,6 +347,10 @@ public class TimelineWorld {
     public static void sort() {
         timeline.sortTimeline();
     }
+    
+    public static void startGUI(){
+        TimelineWorldGUI.run();
+    }
 
     public static void setSaveOnExitToFalse() {
         saveOnExit = false;
@@ -360,4 +364,30 @@ public class TimelineWorld {
             System.out.println("Unable to save.");
         }
     }
+
+    public static Timeline getTimeline() {
+        return timeline;
+    }
+
+    public static void setTimeline(Timeline timeline) {
+        TimelineWorld.timeline = timeline;
+    }
+
+    public static boolean isSaveOnExit() {
+        return saveOnExit;
+    }
+
+    public static void setSaveOnExit(boolean saveOnExit) {
+        TimelineWorld.saveOnExit = saveOnExit;
+    }
+
+    public static SimpleDateFormat getSdf() {
+        return sdf;
+    }
+
+    public static void setSdf(SimpleDateFormat sdf) {
+        TimelineWorld.sdf = sdf;
+    }
+    
+    
 }
