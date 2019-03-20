@@ -8,10 +8,15 @@ package week4.utils.lits;
 import week4.utils.lits.input.Prompt;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map.Entry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import week4.timeline.TimelineWorld;
 import week4.utils.lits.input.PromptParams;
 
 /**
@@ -82,5 +87,18 @@ public class FieldHelpers {
             string = string.replace(replace, with);
         }
         return string;
+    }
+    
+    public static void invokeMethod(String methodClass, String methodToInvoke) {
+
+        Class<?> c;
+        try {
+            c = Class.forName(methodClass);
+            Method method = c.getDeclaredMethod(methodToInvoke);
+            method.invoke(c);
+        } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
+            Logger.getLogger(TimelineWorld.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }

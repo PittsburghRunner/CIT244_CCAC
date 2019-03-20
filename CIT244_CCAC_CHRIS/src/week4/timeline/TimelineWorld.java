@@ -118,7 +118,7 @@ public class TimelineWorld {
                 exit = true;
             } else {
 
-                invokeMethod(mi.getMethodClass(), mi.getMethodToCall());
+                FieldHelpers.invokeMethod(mi.getMethodClass(), mi.getMethodToCall());
             }
             //TODO: add sleep
         }
@@ -300,19 +300,6 @@ public class TimelineWorld {
             }
             //TODO: add sleep
         }
-    }
-
-    private static void invokeMethod(String methodClass, String methodToInvoke) {
-
-        Class<?> c;
-        try {
-            c = Class.forName(methodClass);
-            Method method = c.getDeclaredMethod(methodToInvoke);
-            method.invoke(c);
-        } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-            Logger.getLogger(TimelineWorld.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
     }
 
     public static HashMap<String, Object> promptForInputMap(ArrayList<Prompt> prompts, HashMap<String, Object> inputMap) throws ParseException {

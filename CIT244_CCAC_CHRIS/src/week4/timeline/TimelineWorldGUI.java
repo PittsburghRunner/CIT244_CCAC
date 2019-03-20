@@ -24,7 +24,13 @@ import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
+import java.util.HashMap;
 import week4.timeline.components.Component;
+import week4.utils.lits.FieldHelpers;
+import week4.utils.lits.ListType;
+import week4.utils.lits.input.PromptParams;
 
 public class TimelineWorldGUI extends JPanel {
 
@@ -59,7 +65,11 @@ public class TimelineWorldGUI extends JPanel {
         }
 
         public Object getValueAt(int row, int col) {
-            return data[row][col];
+            Component c = data.get(row);
+            Class clazz = c.getClass();
+            ////
+            FieldHelpers.invokeMethod(clazz,get+da);
+            return Timeline.invokeMethod() data.get(row); // invoke a method based on column number
         }
 
         /*
@@ -91,13 +101,14 @@ public class TimelineWorldGUI extends JPanel {
          * data can change.
          */
         public void setValueAt(Object value, int row, int col) {
-            data[row][col] = value;
+            timeline data
+            .get(row).[col] = value;
         }
 
-      
     }
 
     private static void createAndShowGUI() {
+
         JFrame frame = new JFrame(Properties.getLabel("timeline.world"));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -115,5 +126,30 @@ public class TimelineWorldGUI extends JPanel {
                 createAndShowGUI();
             }
         });
+    }
+
+    public static HashMap<Field, PromptParams> getFieldAnnotations(Class c) {
+        Field[] fields = c.getDeclaredFields();
+        HashMap<Field, PromptParams> promptParamsSet = new HashMap<>();
+        for (Field field : fields) {
+            field.getName();
+            Annotation[] annotationList = field.getAnnotations();
+            for (Annotation a : annotationList) {
+                if (a instanceof PromptParams) {
+                    PromptParams p = (PromptParams) a;
+                    promptParamsSet.put(field, p);
+                }
+            }
+        }
+        return promptParamsSet;
+    }
+    
+    public static Object[] getFieldNames(HashMap<Field, PromptParams> promptParamsSet){
+        ArrayList<String> al = new ArrayList();
+        
+        for(PromptParams pp : promptParamsSet.values()){
+            al.add(pp.name());
+        }
+        return al.toArray();
     }
 }
