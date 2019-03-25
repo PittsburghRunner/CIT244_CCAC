@@ -11,7 +11,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import timeline.utils.lits.ListType;
-import utils.lits.input.PromptParams;
+import timeline.utils.lits.input.PromptParams;
 
 /**
  *

@@ -5,7 +5,7 @@
  */
 package timeline;
 
-import utils.lits.input.InputUtil;
+import timeline.utils.lits.input.InputUtil;
 import java.io.FileNotFoundException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -29,7 +29,8 @@ import timeline.menus.ComponentMenu;
 import timeline.menus.LanguageMenu;
 import timeline.utils.lits.FieldHelpers;
 import timeline.utils.lits.ListType;
-import utils.lits.input.Prompt;
+import timelineworld.TimelineWorldFX;
+import timeline.utils.lits.input.Prompt;
 
 /**
  *
@@ -336,7 +337,7 @@ public class TimelineWorld {
     }
     
     public static void startGUI(){
-        TimelineWorldGUI.run();
+        TimelineWorldFX.run(null);
     }
 
     public static void setSaveOnExitToFalse() {
@@ -388,4 +389,14 @@ public class TimelineWorld {
         }
 
     }
+
+    public static Timeline getTimelineInstance() {
+        return timelineInstance;
+    }
+
+    public static void setTimelineInstance(Timeline timelineInstance) {
+        TimelineWorld.timelineInstance = timelineInstance;
+    }
+     
+     
 }

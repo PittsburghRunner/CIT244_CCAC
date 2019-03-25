@@ -5,7 +5,7 @@
  */
 package timeline.utils.lits;
 
-import utils.lits.input.Prompt;
+import timeline.utils.lits.input.Prompt;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -17,7 +17,7 @@ import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import timeline.TimelineWorld;
-import utils.lits.input.PromptParams;
+import timeline.utils.lits.input.PromptParams;
 
 /**
  *
