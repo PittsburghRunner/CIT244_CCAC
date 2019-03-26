@@ -29,7 +29,6 @@ import timeline.menus.ComponentMenu;
 import timeline.menus.LanguageMenu;
 import timeline.utils.lits.FieldHelpers;
 import timeline.utils.lits.ListType;
-import timelineworld.TimelineWorldFX;
 import timeline.utils.lits.input.Prompt;
 
 /**
@@ -337,7 +336,7 @@ public class TimelineWorld {
     }
     
     public static void startGUI(){
-        TimelineWorldFX.run(null);
+        TimelineWorldGUI.run();
     }
 
     public static void setSaveOnExitToFalse() {
