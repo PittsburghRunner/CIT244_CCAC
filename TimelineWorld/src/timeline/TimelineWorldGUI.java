@@ -6,7 +6,6 @@
 package timeline;
 
 
-import java.awt.Button;
 import java.util.ArrayList;
 
 /**
@@ -19,12 +18,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.TextField;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.HashMap;
-import javafx.event.ActionEvent;
-import timeline.components.Component;
 import timeline.utils.lits.input.PromptParams;
 
 public class TimelineWorldGUI extends JPanel {
