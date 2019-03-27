@@ -13,6 +13,62 @@
     <HumanInterestComponent>
         <object>class timeline.components.ComputerComponent</object>
         <createdOn>2013-02-09T00:00:00-05:00</createdOn>
+        <createdBy>Garmin</createdBy>
+        <title>GPS Watch</title>
+        <description>Surface Pro</description>
+        <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
+    </HumanInterestComponent>
+    <HumanInterestComponent>
+        <object>class timeline.components.ComputerComponent</object>
+        <createdOn>2013-02-09T00:00:00-05:00</createdOn>
+        <createdBy>Microsoft</createdBy>
+        <title>Surface Pro</title>
+        <description>Surface Pro</description>
+        <referenceSourceUrl>test</referenceSourceUrl>
+    </HumanInterestComponent>
+    <HumanInterestComponent>
+        <object>class timeline.components.ComputerComponent</object>
+        <createdOn>2013-02-09T00:00:00-05:00</createdOn>
+        <createdBy>Microsoft</createdBy>
+        <title>Surface Pro</title>
+        <description>Surface Pro</description>
+        <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
+    </HumanInterestComponent>
+    <HumanInterestComponent>
+        <object>class timeline.components.ComputerComponent</object>
+        <createdOn>2013-02-09T00:00:00-05:00</createdOn>
+        <createdBy>Microsoft</createdBy>
+        <title>Surface Pro</title>
+        <description>Surface Pro</description>
+        <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
+    </HumanInterestComponent>
+    <HumanInterestComponent>
+        <object>class timeline.components.ComputerComponent</object>
+        <createdOn>2013-02-09T00:00:00-05:00</createdOn>
+        <createdBy>Microsoft</createdBy>
+        <title>Surface Pro</title>
+        <description>Surface Pro</description>
+        <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
+    </HumanInterestComponent>
+    <HumanInterestComponent>
+        <object>class timeline.components.ComputerComponent</object>
+        <createdOn>2013-02-09T00:00:00-05:00</createdOn>
+        <createdBy>Microsoft</createdBy>
+        <title>Surface Pro</title>
+        <description>Surface Pro</description>
+        <referenceSourceUrl></referenceSourceUrl>
+    </HumanInterestComponent>
+    <HumanInterestComponent>
+        <object>class timeline.components.ComputerComponent</object>
+        <createdOn>2013-02-09T00:00:00-05:00</createdOn>
+        <createdBy>IBM</createdBy>
+        <title>First Computer Ever</title>
+        <description>Surface Pro</description>
+        <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
+    </HumanInterestComponent>
+    <HumanInterestComponent>
+        <object>class timeline.components.ComputerComponent</object>
+        <createdOn>2013-02-09T00:00:00-05:00</createdOn>
         <createdBy>Microsoft</createdBy>
         <title>Surface Pro Test</title>
         <description>Surface Pro</description>
@@ -32,69 +88,13 @@
         <createdBy>Microsoft</createdBy>
         <title>Surface Prodgrtg</title>
         <description>Surface Pro</description>
-        <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
-    </HumanInterestComponent>
-    <HumanInterestComponent>
-        <object>class timeline.components.ComputerComponent</object>
-        <createdOn>2013-02-09T00:00:00-05:00</createdOn>
-        <createdBy>Microsoft</createdBy>
-        <title>Surface Pro</title>
-        <description>Surface Pro</description>
-        <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
-    </HumanInterestComponent>
-    <HumanInterestComponent>
-        <object>class timeline.components.ComputerComponent</object>
-        <createdOn>2013-02-09T00:00:00-05:00</createdOn>
-        <createdBy>Microsoft</createdBy>
-        <title>Surface Pro</title>
-        <description>Surface Pro</description>
-        <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
-    </HumanInterestComponent>
-    <HumanInterestComponent>
-        <object>class timeline.components.ComputerComponent</object>
-        <createdOn>2013-02-09T00:00:00-05:00</createdOn>
-        <createdBy>Microsoft</createdBy>
-        <title>Surface Pro</title>
-        <description>Surface Pro</description>
-        <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
-    </HumanInterestComponent>
-    <HumanInterestComponent>
-        <object>class timeline.components.ComputerComponent</object>
-        <createdOn>2013-02-09T00:00:00-05:00</createdOn>
-        <createdBy>Microsoft</createdBy>
-        <title>Surface Pro</title>
-        <description>Surface Pro</description>
-        <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
+        <referenceSourceUrl></referenceSourceUrl>
     </HumanInterestComponent>
     <HumanInterestComponent>
         <object>class timeline.components.ComputerComponent</object>
         <createdOn>2013-02-09T00:00:00-05:00</createdOn>
         <createdBy>Chronowerkz</createdBy>
         <title>This works Well</title>
-        <description>Surface Pro</description>
-        <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
-    </HumanInterestComponent>
-    <HumanInterestComponent>
-        <object>class timeline.components.ComputerComponent</object>
-        <createdOn>2013-02-09T00:00:00-05:00</createdOn>
-        <createdBy>Microsoft</createdBy>
-        <title>Surface Pro</title>
-        <description>Surface Pro</description>
-        <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
-    </HumanInterestComponent>
-    <HumanInterestComponent>
-        <object>class timeline.components.ComputerComponent</object>
-        <createdOn>2013-02-09T00:00:00-05:00</createdOn>
-        <createdBy>Microsoft</createdBy>
-        <title>Surface Pro</title>
-        <description>Surface Pro</description>
-        <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
-    </HumanInterestComponent>
-    <HumanInterestComponent>
-        <object>class timeline.components.ComputerComponent</object>
-        <createdOn>2013-02-09T00:00:00-05:00</createdOn>
-        <createdBy>Microsoft</createdBy>
-        <title>Surface Pro</title>
         <description>Surface Pro</description>
         <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
     </HumanInterestComponent>

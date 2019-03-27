@@ -29,7 +29,7 @@ public class TimelineWorldGUI extends JPanel {
         super(new GridLayout(1, 0));
 
         JTable table = new JTable(new TimelineTableModel());
-        table.setPreferredScrollableViewportSize(new Dimension(1500, 900));
+        table.setPreferredScrollableViewportSize(new Dimension(900, 400));
         table.setFillsViewportHeight(true);
         table.setAutoCreateRowSorter(true);
 

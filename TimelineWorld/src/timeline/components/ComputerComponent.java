@@ -28,6 +28,8 @@ public class ComputerComponent extends Component {
     private String comunicationSpeedUnit;
     @PromptParams(name = "Manufacturer", min = 1, max = 300, listType = ListType.DEFAULT)
     private String manufacturer;
+    @PromptParams(name = "Model", min = 1, max = 300, listType = ListType.DEFAULT)
+    private String model;
 
     public ComputerComponent() {
 
@@ -46,6 +48,8 @@ public class ComputerComponent extends Component {
         exportMap.put("comunicationSpeed", getComunicationSpeed());
         exportMap.put("comunicationSpeedUnit", getComunicationSpeedUnit());
         exportMap.put("manufacturer", getManufacturer());
+        exportMap.put("model", getModel());
+
         return exportMap;
     }
 
@@ -56,6 +60,8 @@ public class ComputerComponent extends Component {
         comunicationSpeed = (Double) map.getOrDefault("comunicationSpeed",0d);
         comunicationSpeedUnit = (String) map.get("comunicationSpeedUnit");
         manufacturer = (String) map.get("manufacturer");
+        model = (String) map.get("model");
+        
 
     }
     
@@ -105,6 +111,14 @@ public class ComputerComponent extends Component {
 
     public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
     }
     
     
