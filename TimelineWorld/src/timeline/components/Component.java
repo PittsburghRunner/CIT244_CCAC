@@ -25,17 +25,17 @@ public class Component implements Portable, Comparable {
 
     @PromptParams(hidden=true)
     public String object;
-    @PromptParams(name="Created On", min=1900, max=2022, listType=ListType.DATE)
+    @PromptParams(name="created.on", min=1900, max=2022, listType=ListType.DATE)
     public Date createdOn;
-    @PromptParams(name="Created By", min=4, max=300, listType=ListType.STRING_MIN_MAX)
+    @PromptParams(name="created.by", min=4, max=300, listType=ListType.STRING_MIN_MAX)
     public String createdBy;
-    @PromptParams(name="Title", min=4, max=300, listType=ListType.STRING_MIN_MAX)
+    @PromptParams(name="title", min=4, max=300, listType=ListType.STRING_MIN_MAX)
     public String title;
-    @PromptParams(name="Description", min=4, max=3000, listType=ListType.STRING_MIN_MAX)
+    @PromptParams(name="description", min=4, max=3000, listType=ListType.STRING_MIN_MAX)
     public String description;
-    @PromptParams(name="Reference Source URL", min=4, max=300, listType=ListType.STRING_MIN_MAX)
+    @PromptParams(name="reference.source.url", min=4, max=300, listType=ListType.STRING_MIN_MAX)
     public String referenceSourceUrl;
-    @PromptParams(name="Image URL", min=4, max=300, listType=ListType.STRING_MIN_MAX)
+    @PromptParams(name="image.url", min=4, max=300, listType=ListType.STRING_MIN_MAX)
     public String imageUrl;
 
     public Component() {

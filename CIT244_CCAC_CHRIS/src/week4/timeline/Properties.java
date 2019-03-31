@@ -19,7 +19,7 @@ public class Properties {
     public static final String TIMELINE_FILE = "TIMELINE";
     public static final String FILE_SUFFIX = ".xml";
 
-    private static final String LABELS_BUNDLE = "week4.timeline.labels";
+    private static final String LABELS_BUNDLE = "labels";
     private static ResourceBundle labels =  ResourceBundle.getBundle(LABELS_BUNDLE, Locale.getDefault());
     
     public static String getLabel(String key) {

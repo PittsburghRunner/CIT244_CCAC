@@ -21,7 +21,7 @@ public enum ComponentMenu {
     COMPONENT(1, "component.general", Component.class),
     COMPUTER_COMPONENT(2, "component.computer", ComputerComponent.class),
     HUMAN_INTEREST_COMPONENT(3, "component.human.interest", HumanInterestComponent.class),
-    EXIT(4, "component.menu.exit", TimelineWorld.class);
+    EXIT(4, "component.exit", TimelineWorld.class);
     
 
     int menuItemid;

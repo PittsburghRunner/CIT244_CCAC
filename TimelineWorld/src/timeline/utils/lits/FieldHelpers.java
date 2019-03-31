@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import timeline.Properties;
 import timeline.TimelineWorld;
 import timeline.utils.lits.input.PromptParams;
 
@@ -47,7 +48,7 @@ public class FieldHelpers {
                         min = pp.min();
                         max = pp.max();
                         listType = pp.listType();
-                        prompt = pp.listType().prompt.replace("%name", pp.name());
+                        prompt = pp.listType().prompt.replace("%name", Properties.getLabel(pp.name()));
                         HashMap<String, Object> replacements = splitStringToMap(pp.replacements());
                         replacements.put("min", pp.min());
                         replacements.put("max", pp.max());

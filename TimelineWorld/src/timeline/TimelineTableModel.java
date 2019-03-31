@@ -17,7 +17,7 @@ import timeline.menus.ComponentMenu;
  */
 class TimelineTableModel extends AbstractTableModel {
 
-    private String[] columnNames = {"Created On", "Title", "Created By", "Reference Source URL", "Component Type"};
+    private String[] columnNames = {"created.on", "title", "create.by", "reference.source.url", "component.type"};
     private ArrayList<? extends Component> data = TimelineWorld.getTimeline().getComponents();
 
     @Override
@@ -32,7 +32,7 @@ class TimelineTableModel extends AbstractTableModel {
 
     @Override
     public String getColumnName(int col) {
-        return columnNames[col];
+        return Properties.getLabel(columnNames[col]);
     }
 
     @Override
@@ -105,35 +105,4 @@ class TimelineTableModel extends AbstractTableModel {
         
         
     }
-
-//    public static Object[][] loadComponents(ArrayList<? extends Component> components) {
-//
-//        Object[][] list = new Object[components.size()][5];
-//
-//        for (int i = 0; i < components.size(); i++) {
-//            Component c = components.get(i);
-//            Object[] row = new Object[4];
-//            row[0] = c.getCreatedOn();
-//            row[1] = c.getTitle();
-//            row[2] = c.getCreatedBy();
-//            row[3] = c.getReferenceSourceUrl();
-//
-//            list[i] = row;
-//        }
-//
-//        return list;
-//    }
-
-    public String[] getColumnNames() {
-        return columnNames;
-    }
-
-    public void setColumnNames(String[] columnNames) {
-        this.columnNames = columnNames;
-    }
-
-    public ArrayList<? extends Component> getData() {
-        return data;
-    }            
-
 }

@@ -12,7 +12,7 @@ import java.util.HashMap;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import week4.utils.lits.ListType;
+import week4.timeline.utils.lits.ListType;
 import week4.utils.lits.input.PromptParams;
 
 /**
@@ -24,19 +24,19 @@ import week4.utils.lits.input.PromptParams;
 public class Component implements Portable, Comparable {
 
     @PromptParams(hidden=true)
-    private String object;
+    public String object;
     @PromptParams(name="Created On", min=1900, max=2022, listType=ListType.DATE)
-    private Date createdOn;
+    public Date createdOn;
     @PromptParams(name="Created By", min=4, max=300, listType=ListType.STRING_MIN_MAX)
-    private String createdBy;
+    public String createdBy;
     @PromptParams(name="Title", min=4, max=300, listType=ListType.STRING_MIN_MAX)
-    private String title;
+    public String title;
     @PromptParams(name="Description", min=4, max=3000, listType=ListType.STRING_MIN_MAX)
-    private String description;
+    public String description;
     @PromptParams(name="Reference Source URL", min=4, max=300, listType=ListType.STRING_MIN_MAX)
-    private String referenceSourceUrl;
+    public String referenceSourceUrl;
     @PromptParams(name="Image URL", min=4, max=300, listType=ListType.STRING_MIN_MAX)
-    private String imageUrl;
+    public String imageUrl;
 
     public Component() {
         object=this.getClass().toString();

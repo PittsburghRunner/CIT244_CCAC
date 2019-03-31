@@ -20,15 +20,15 @@ import timeline.utils.lits.input.PromptParams;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ComputerComponent extends Component {
 
-    @PromptParams(name = "MHZ CPU Speed", min = 1, max = 999999, listType = ListType.INTEGER)
+    @PromptParams(name = "mhz.cpu.speed", min = 1, max = 999999, listType = ListType.INTEGER)
     private int megahertzCPUSpeed;
-    @PromptParams(name = "Communication Speed", min = 1, max = 999999, listType = ListType.DOUBLE)
+    @PromptParams(name = "communication.speed", min = 1, max = 999999, listType = ListType.DOUBLE)
     private double comunicationSpeed;
-    @PromptParams(name = "Communication Speed Unit", min = 1, max = 20, listType = ListType.DEFAULT)
+    @PromptParams(name = "communication.speed.unit", min = 1, max = 20, listType = ListType.DEFAULT)
     private String comunicationSpeedUnit;
-    @PromptParams(name = "Manufacturer", min = 1, max = 300, listType = ListType.DEFAULT)
+    @PromptParams(name = "manufacturer", min = 1, max = 300, listType = ListType.DEFAULT)
     private String manufacturer;
-    @PromptParams(name = "Model", min = 1, max = 300, listType = ListType.DEFAULT)
+    @PromptParams(name = "model", min = 1, max = 300, listType = ListType.DEFAULT)
     private String model;
 
     public ComputerComponent() {

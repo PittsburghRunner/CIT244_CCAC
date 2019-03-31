@@ -27,8 +27,8 @@ import week4.timeline.components.ComputerComponent;
 import week4.timeline.components.HumanInterestComponent;
 import week4.timeline.menus.ComponentMenu;
 import week4.timeline.menus.LanguageMenu;
-import week4.utils.lits.FieldHelpers;
-import week4.utils.lits.ListType;
+import week4.timeline.utils.lits.FieldHelpers;
+import week4.timeline.utils.lits.ListType;
 import week4.utils.lits.input.Prompt;
 
 /**

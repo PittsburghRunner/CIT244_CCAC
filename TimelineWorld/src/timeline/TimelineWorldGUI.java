@@ -88,7 +88,7 @@ public class TimelineWorldGUI extends JPanel {
         ArrayList<String> al = new ArrayList();
         
         for(PromptParams pp : promptParamsSet.values()){
-            al.add(pp.name());
+            al.add(Properties.getLabel(pp.name()));
         }
         return al.toArray();
     }

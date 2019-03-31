@@ -10,7 +10,7 @@ import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import week4.utils.lits.ListType;
+import week4.timeline.utils.lits.ListType;
 
 /**
  *

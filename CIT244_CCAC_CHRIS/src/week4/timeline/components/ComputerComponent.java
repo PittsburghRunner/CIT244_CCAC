@@ -9,7 +9,7 @@ import java.util.HashMap;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import week4.utils.lits.ListType;
+import week4.timeline.utils.lits.ListType;
 import week4.utils.lits.input.PromptParams;
 
 /**
