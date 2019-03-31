@@ -5,11 +5,8 @@
  */
 package timeline;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.table.AbstractTableModel;
 import timeline.components.Component;
 import timeline.menus.ComponentMenu;
@@ -105,6 +102,8 @@ class TimelineTableModel extends AbstractTableModel {
             default:
                 break;
         }
+        
+        
     }
 
 //    public static Object[][] loadComponents(ArrayList<? extends Component> components) {
@@ -124,4 +123,17 @@ class TimelineTableModel extends AbstractTableModel {
 //
 //        return list;
 //    }
+
+    public String[] getColumnNames() {
+        return columnNames;
+    }
+
+    public void setColumnNames(String[] columnNames) {
+        this.columnNames = columnNames;
+    }
+
+    public ArrayList<? extends Component> getData() {
+        return data;
+    }            
+
 }
