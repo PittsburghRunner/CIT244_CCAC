@@ -21,14 +21,16 @@ import java.awt.GridLayout;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.HashMap;
+import timeline.components.Component;
 import timeline.utils.lits.input.PromptParams;
 
 public class TimelineWorldGUI extends JPanel {
+    private static JTable table;
 
     public TimelineWorldGUI() {
         super(new GridLayout(1, 0));
 
-        JTable table = new JTable(new TimelineTableModel());
+        table = new JTable(new TimelineTableModel());
         table.setPreferredScrollableViewportSize(new Dimension(900, 400));
         table.setFillsViewportHeight(true);
         table.setAutoCreateRowSorter(true);
@@ -37,10 +39,11 @@ public class TimelineWorldGUI extends JPanel {
 
         add(scrollPane);
         
+        
+        
  
     }
 
-    
 
     private static void createAndShowGUI() {
 
