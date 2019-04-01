@@ -79,7 +79,7 @@
         <object>class timeline.components.ComputerComponent</object>
         <createdOn>2013-02-09T00:00:00-05:00</createdOn>
         <createdBy>Chronowerkz</createdBy>
-        <title>This works Well</title>
+        <title>This works Well2</title>
         <description>Surface Pro</description>
         <referenceSourceUrl>https://en.wikipedia.org/wiki/Surface_Pro</referenceSourceUrl>
     </HumanInterestComponent>
@@ -108,4 +108,36 @@
         <referenceSourceUrl>http://technologyrediscovery.net</referenceSourceUrl>
         <isInteresting>true</isInteresting>
     </HumanInterestComponent>
+    <Component>
+        <object>class timeline.components.Component</object>
+        <createdOn>2018-08-04T00:00:00-04:00</createdOn>
+        <createdBy>This Is A Test of the GUI</createdBy>
+        <title>Test</title>
+        <description>HEre is my descriptoon. :)</description>
+        <referenceSourceUrl>HTtptesttesttest</referenceSourceUrl>
+    </Component>
+    <Component>
+        <object>class timeline.components.Component</object>
+        <createdOn>2018-08-04T00:00:00-04:00</createdOn>
+        <createdBy>This Is A Test of the GUI</createdBy>
+        <title>Test</title>
+        <description>HEre is my descriptoon. :)</description>
+        <referenceSourceUrl>HTtptesttesttest</referenceSourceUrl>
+    </Component>
+    <Component>
+        <object>class timeline.components.Component</object>
+        <createdOn>2018-08-04T00:00:00-04:00</createdOn>
+        <createdBy>This Is A Test of the GUI</createdBy>
+        <title>Test</title>
+        <description>HEre is my descriptoon. :)</description>
+        <referenceSourceUrl>HTtptesttesttest</referenceSourceUrl>
+    </Component>
+    <Component>
+        <object>class timeline.components.Component</object>
+        <createdOn>2018-08-04T00:00:00-04:00</createdOn>
+        <createdBy>This Is A Test of the GUI</createdBy>
+        <title>Test</title>
+        <description>HEre is my descriptoon. :)</description>
+        <referenceSourceUrl>HTtptesttesttest</referenceSourceUrl>
+    </Component>
 </timeline>

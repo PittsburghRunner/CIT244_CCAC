@@ -8,6 +8,8 @@ package timeline.utils.lits.input;
 import java.lang.reflect.Field;
 import java.util.Comparator;
 import java.util.HashMap;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 import timeline.utils.lits.ListType;
 
 /**
@@ -16,6 +18,8 @@ import timeline.utils.lits.ListType;
  */
 public class Prompt implements Comparable {
 
+    javax.swing.JTextField textField;
+    javax.swing.JLabel label;
     int order;
     int min;
     int max;
@@ -32,6 +36,9 @@ public class Prompt implements Comparable {
         max = mx;
         list = l;
         listType = lt;
+        label = new javax.swing.JLabel();
+        textField = new javax.swing.JTextField();
+        label.setText(prompt);
 
     }
 
@@ -75,4 +82,22 @@ public class Prompt implements Comparable {
         }
         return 0;
     }
+
+    public JTextField getTextField() {
+        return textField;
+    }
+
+    public void setTextField(JTextField textField) {
+        this.textField = textField;
+    }
+
+    public JLabel getLabel() {
+        return label;
+    }
+
+    public void setLabel(JLabel label) {
+        this.label = label;
+    }
+    
+    
 }
