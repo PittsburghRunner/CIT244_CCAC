@@ -53,7 +53,7 @@ public class TimelineWorldGUI extends JPanel implements ActionListener {
         editButton.setSize(4, 1);
         editButton.addActionListener(this);
         editButton.setActionCommand("editComponent");
-        
+
         table.setPreferredScrollableViewportSize(new Dimension(900, 400));
         table.setFillsViewportHeight(true);
         table.setAutoCreateRowSorter(true);
@@ -64,15 +64,20 @@ public class TimelineWorldGUI extends JPanel implements ActionListener {
         GroupLayout buttonGroupLayout = new GroupLayout(buttonGroupPanel);
         buttonGroupPanel.setLayout(buttonGroupLayout);
         buttonGroupLayout.setHorizontalGroup(
-            buttonGroupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING));
-        
+                buttonGroupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonGroupLayout.createSequentialGroup()
+                                .addComponent(addButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(editButton)
+                        ));
+
         buttonGroupLayout.setVerticalGroup(
-            buttonGroupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonGroupLayout.createSequentialGroup()
-                .addComponent(addButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(editButton)
-                ));
+                buttonGroupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonGroupLayout.createSequentialGroup()
+                                .addComponent(addButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(editButton)
+                        ));
         add(buttonGroupPanel);
     }
 
@@ -130,6 +135,38 @@ public class TimelineWorldGUI extends JPanel implements ActionListener {
             al.add(Properties.getLabel(pp.name()));
         }
         return al.toArray();
+    }
+
+    public static JTable getTable() {
+        return table;
+    }
+
+    public static void setTable(JTable table) {
+        TimelineWorldGUI.table = table;
+    }
+
+    public static JPanel getButtonGroupPanel() {
+        return buttonGroupPanel;
+    }
+
+    public static void setButtonGroupPanel(JPanel buttonGroupPanel) {
+        TimelineWorldGUI.buttonGroupPanel = buttonGroupPanel;
+    }
+
+    public JButton getAddButton() {
+        return addButton;
+    }
+
+    public void setAddButton(JButton addButton) {
+        this.addButton = addButton;
+    }
+
+    public JButton getEditButton() {
+        return editButton;
+    }
+
+    public void setEditButton(JButton editButton) {
+        this.editButton = editButton;
     }
 
 }

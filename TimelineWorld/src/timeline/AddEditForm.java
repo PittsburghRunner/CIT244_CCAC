@@ -218,7 +218,7 @@ public class AddEditForm extends javax.swing.JPanel {
             map.put("imageUrl",imageUrl.getText());
             Component comp = new Component(map);
             TimelineWorld.getTimeline().getComponents().add(comp);
-
+            TimelineWorldGUI.getTable().getModel().;
             
     }//GEN-LAST:event_saveActionPerformed
 
