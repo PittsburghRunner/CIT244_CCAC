@@ -72,7 +72,7 @@ public class SpookyTest {
 
     }
 
-    public String indent(int id) {
+    public static String indent(int id) {
         
         String indent = "";
         for (int i = 1; i < id; i++) {
