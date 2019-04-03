@@ -6,7 +6,8 @@
 package utils.sorting.test;
 
 import java.math.BigInteger;
-import utils.sorting.SortUtility;
+import utils.sorting.Sorter;
+import week10.TimePractice;
 import week8.spooky.SpookyTest;
 
 /**
@@ -14,30 +15,57 @@ import week8.spooky.SpookyTest;
  *
  * @author christopher.eckles
  */
-public class TestSortNumbers {
+public class TestSorter {
 
     public static void main(String[] args) {
+        
+        SorterUnitTests.runTest();
 
 //           callMyself(10);
         
 //        System.out.println("Creating a new sort utility");
-        SortUtility su;
+        Sorter su;
 //
 //        System.out.println("Turning on debugging");
 //        su.setDebug(true);
 //
 //        System.out.println("FIRST TEST......");
 //
-        su = new SortUtility();
+        su = new Sorter();
+        
+        ///create an int array with random numbers;
+        
+        
+        //copy int array
+        
+        //time a
+
+        
+        
+        //sort using bubble sort
+        
+        //time b
+        //print difference
+        
+        //time a
+
+        
+        
+        //sort using bucket sort
+        
+        //time b
+        //print difference
         int[] sortInts = new int[]{6,4,1,7,3,2};
         printIntArray(sortInts);
-        su.mergeSort(sortInts);
+        TimePractice.getTimestamp();
+        su.bucketSort(sortInts);
+        TimePractice.getTimestamp();
         printIntArray(sortInts);
         
-        su = new SortUtility();
+        su = new Sorter();
         int[] sortInts2 = new int[]{10,6,4,1};
         printIntArray(sortInts2);
-//        su.mergeSort(sortInts2);
+        su.bucketSort(sortInts2);
         printIntArray(sortInts2);
 //        
 //
