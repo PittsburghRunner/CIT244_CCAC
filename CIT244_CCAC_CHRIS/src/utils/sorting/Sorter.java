@@ -1,6 +1,8 @@
 package utils.sorting;
 
 import java.math.BigInteger;
+import java.time.Instant;
+import java.util.Date;
 
 /**
  * This utility contains a few methods that can be used to sort numbers
@@ -8,16 +10,20 @@ import java.math.BigInteger;
  * @author christopher.eckles
  */
 public class Sorter {
-
     private boolean debug = false;
     int cycles = 0;
     int calculations = 0;
     int swaps = 0;
     int offset = 0;
     Boolean swapped = true;
+    Instant runTimeStart = Instant.now();
+    Instant runTimeEnd = Instant.now();
 
-    public void bucketSort(int[] list) {
+
+    public int[] bucketSort(int[] list) {
+        initializeSorting();
         if (list.length > 1) {
+            int[] finished = new int[list.length];
             //create buckets up to largest number
             int[] buckets = new int[maxIntArrayValue(list) + 1];
             //initialize count in each bucket
@@ -36,10 +42,14 @@ public class Sorter {
             //put each number back in the correct order.
             for(int eachBucket = 0; eachBucket < buckets.length ; eachBucket++){
                 for(int bucketCount = 0; bucketCount<buckets[eachBucket]; bucketCount++ ){
-                    list[outputPosition++] = eachBucket;
+                    finished[outputPosition++] = eachBucket;
                 }
             }
+            finalizeSorting();
+            return finished;
         } //close if
+        finalizeSorting();
+        return list;
     }//close method
 
     public int maxIntArrayValue(int[] list) {
@@ -59,16 +69,18 @@ public class Sorter {
      * @return an array of sorted ints
      */
     public int[] bubbleSort(int[] array) {
+        initializeSorting();
+        int[] result = array.clone();
         while (swapped == true) {
             cycles++;
             swapped = false;
-            for (int i = 0; i < array.length - 1 - offset; i++) {
+            for (int i = 0; i < result.length - 1 - offset; i++) {
                 calculations++;
-                int first = array[i];
-                int second = array[i + 1];
+                int first = result[i];
+                int second = result[i + 1];
                 if (first > second) {
-                    array[i] = second;
-                    array[i + 1] = first;
+                    result[i] = second;
+                    result[i + 1] = first;
                     swaps++;
                     swapped = true;
                     if (debug) {
@@ -81,11 +93,12 @@ public class Sorter {
         if (debug) {
             System.out.println("Total Cycles: " + cycles + "  Calculations: " + calculations + "  Swaps: " + swaps);
         }
-        return array;
+        finalizeSorting();
+        return result;
     }
 
     public int[] mergeSort(int[] list) {
-
+        initializeSorting();
         if (list.length > 1) {
             int[] firstHalf = new int[list.length / 2];
             System.arraycopy(list, 0, firstHalf, 0, list.length / 2);
@@ -94,13 +107,16 @@ public class Sorter {
             int secondHalfLength = list.length - list.length / 2;
             int[] secondHalf = new int[secondHalfLength];
             System.arraycopy(list, list.length / 2, secondHalf, 0, secondHalfLength);
+            finalizeSorting();
             return merge(firstHalf, secondHalf, list);
             //runs "on the folding back up"
         } //close if
+        finalizeSorting();
         return list;
     } //close merge sort
 
-    public static int[] merge(int[] list1, int[] list2, int temp[]) {
+    public int[] merge(int[] list1, int[] list2, int temp[]) {
+        initializeSorting();
         int current1 = 0;  //current index in list 1
         int current2 = 0;  //current index in list 2
         int current3 = 0;  //current index in temp list
@@ -120,11 +136,13 @@ public class Sorter {
             }
 
         } //close merge while
+        finalizeSorting();
         return temp;
     } //close merge
 
     //// other stuff
-    public static BigInteger[] bubbleSort(BigInteger[] array) {
+    public BigInteger[] bubbleSort(BigInteger[] array) {
+        initializeSorting();
         Boolean swapped = true;
         while (swapped == true) {
             swapped = false;
@@ -138,10 +156,12 @@ public class Sorter {
                 }
             }
         }
+        finalizeSorting();
         return array;
     }
 
     public Object[] bubbleSort(Comparable[] array) {
+        initializeSorting();
         while (swapped == true) {
             cycles++;
             swapped = false;
@@ -164,15 +184,57 @@ public class Sorter {
         if (debug) {
             System.out.println("Total Cycles: " + cycles + "  Calculations: " + calculations + "  Swaps: " + swaps);
         }
+        finalizeSorting();
         return array;
+    }
+    
+    private void initializeSorting(){
+    cycles = 0;
+    calculations = 0;
+    swaps = 0;
+    offset = 0;
+    swapped = true;
+    runTimeStart = Instant.now();
+    }
+    
+    private void finalizeSorting(){
+    runTimeEnd = Instant.now();
     }
 
     public boolean isDebug() {
         return debug;
     }
 
-    public void setDebug(boolean debug) {
-        this.debug = debug;
+    public int getCycles() {
+        return cycles;
     }
 
+    public int getCalculations() {
+        return calculations;
+    }
+
+    public int getSwaps() {
+        return swaps;
+    }
+
+    public int getOffset() {
+        return offset;
+    }
+
+    public Boolean getSwapped() {
+        return swapped;
+    }
+
+    public Long[] getRunTime() {
+        Long[] runTime = new Long[2];
+        runTime[0] = runTimeStart.toEpochMilli();
+        runTime[1] = runTimeEnd.toEpochMilli();
+        return runTime;
+    }
+
+    
+
+    
+    
+    
 }
