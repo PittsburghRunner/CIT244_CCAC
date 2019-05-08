@@ -18,12 +18,14 @@ public class HeatDissipator extends Thread {
 
     CoffeeMachine cm;
 
+    boolean on = true;
+
     public HeatDissipator(CoffeeMachine here) {
         cm = here;
     }
-    
+
     @Override
-    public void run(){
+    public void run() {
         try {
             dissipate();
         } catch (InterruptedException ex) {
@@ -32,7 +34,7 @@ public class HeatDissipator extends Thread {
     }
 
     public void dissipate() throws InterruptedException {
-        while (true) {
+        while (on) {
             TimeUnit.SECONDS.sleep(10);
             if (cm.getWaterTemperature() > CoffeeMachine.ROOM_TEMP) {
                 cm.decrementWaterTemperature(5);
@@ -41,4 +43,21 @@ public class HeatDissipator extends Thread {
 
         }
     }
+
+    public CoffeeMachine getCm() {
+        return cm;
+    }
+
+    public void setCm(CoffeeMachine cm) {
+        this.cm = cm;
+    }
+
+    public boolean isOn() {
+        return on;
+    }
+
+    public void setOn(boolean on) {
+        this.on = on;
+    }
+
 }
