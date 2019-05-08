@@ -110,7 +110,7 @@ public class CoffeeMachineWorld {
     public static void fillWaterTank() {
         System.out.println("Where to fill the water tank to?");
         int oz = InputUtil.waitForIntInput(4, CoffeeMachine.WATER_TANK_MAX_LEVEL, CoffeeMachine.WATER_TANK_MAX_LEVEL);
-        cm.setWasteBinLevel(oz);
+        cm.setWaterTankLevelOunces(oz);
     }
 
     public static void fillCoffeeBin() {
