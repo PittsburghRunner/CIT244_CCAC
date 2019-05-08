@@ -56,7 +56,7 @@ public class CoffeeMachineWorld {
                 try {
                     invokeMethod(mi.getMethodClass(), mi.getMethodToCall());
                 } catch (Exception ex) {
-                    System.out.println("Oops! " + ex.getMessage());
+                    System.out.println("***********Oops! " + ex.getMessage());
                 }
             }
             //TODO: add sleep
@@ -72,7 +72,7 @@ public class CoffeeMachineWorld {
                 cm.makeCoffee(8);
             }
         } catch (InterruptedException | ModeException ex) {
-                    System.out.println("Oops! " + ex.getMessage());
+                    System.out.println("***********Oops! " + ex.getMessage());
         }
     }
 
@@ -83,7 +83,7 @@ public class CoffeeMachineWorld {
             Method method = c.getDeclaredMethod(methodToInvoke);
             method.invoke(c);
         } catch (ClassNotFoundException | NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
-                    System.out.println("Oops! " + ex.getMessage());
+                    System.out.println("***********Oops! " + ex.getMessage());
         }
 
     }
@@ -98,7 +98,7 @@ public class CoffeeMachineWorld {
         try {
             cm.checkStatus(8);
         } catch (ModeException e) {
-            System.out.println("Oops! " + e.getMessage());
+            System.out.println("***********Oops! " + e.getMessage());
         }
 
     }
@@ -130,7 +130,7 @@ public class CoffeeMachineWorld {
         try {
             cm.makeCoffee(oz);
         } catch (InterruptedException | ModeException ex) {
-                    System.out.println("Oops! " + ex.getMessage());
+                    System.out.println("***********Oops! " + ex.getMessage());
         }
     }
 }
