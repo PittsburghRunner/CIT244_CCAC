@@ -2,6 +2,9 @@
 
 ## Designed for CIT-244: Object-Oriented Java II Class
 
+## To run:
+* Coffee Machine World/src/world/machines/coffee/CoffeeMachineWorld.java
+
 ### Concepts
 * Threading 
 * System Design flow
