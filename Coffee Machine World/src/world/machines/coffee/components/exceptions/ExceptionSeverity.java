@@ -9,11 +9,11 @@ package world.machines.coffee.components.exceptions;
  *
  * @author christopher.eckles
  */
-enum ExceptionSeverity {
-    COSMETIC("Cosmetic",0),
-    LOW("Low",3),
-    MODERATE("Moderate",6),
-    CATASTROPHIC("Catastrophic",9);
+public enum ExceptionSeverity {
+    COSMETIC("Cosmetic - Continuing with process",0),
+    LOW("Low - User Intervention Required",3),
+    MODERATE("Moderate - User Intervention Required",6),
+    CATASTROPHIC("Catastrophic - Maintenance Needed",9);
 
     String name;
     int value;    
